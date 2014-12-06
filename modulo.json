@@ -1,0 +1,187 @@
+[  {
+      "name"     : "cartella_N",
+      "label"     :  "Cartella N°",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "nome",
+      "label"     :  "Nome",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "cognome",
+      "label"     :  "Cognome",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "luogo_nasc",
+      "label"     :  "Luogo di nascita",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "data_nasc",
+      "label"     :  "Data di nascita",
+      "type"       : "DateField"
+   },
+   {
+      "name"     : "domicilio",
+      "label"     :  "Domicilio",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "citta",
+      "label"     :  "Città",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "recapito",
+      "label"     :  "Recapito telefonico",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "email",
+      "label"     :  "Email o altro recapito",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "servizio_inv",
+      "label"     :  "Servizio inviante",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "operatore",
+      "label"     :  "Operatore e numero di riferimento",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "info_invio",
+      "label"     :  "Inserire qui le motivazioni principali dell'invio",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "servizio_inv_fam",
+      "label"     :  "Inserire qui il servizio inviante/familiare proponente",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "vis_tos",
+      "label"     :  "Visita tossicologica",
+      "type"       : "BooleanField"
+   },
+   {
+      "name"     : "data_vis_tos",
+      "label"     :  "Data",
+      "type"       : "DateField"
+   },
+   {
+      "name"     : "ric_sost",
+      "label"     :  "Effettuazione ricerca sostanza su campione biologico",
+      "type"       : "BooleanField"
+   },
+   {
+      "name"     : "data_ric_sost",
+      "label"     :  "Data",
+      "type"       : "DateField"
+   },
+    {
+      "name"     : "esami_siero",
+      "label"     :  "Effettuazione esami sierologici",
+      "type"       : "BooleanField"
+   },
+   {
+      "name"     : "data_esami_siero",
+      "label"     :  "Data",
+      "type"       : "DateField"
+   },
+    {
+      "name"     : "esami_ematochimici",
+      "label"     :  "Effettuazione esami sierologici",
+      "type"       : "BooleanField"
+   },
+   {
+      "name"     : "data_esami_ematochimici",
+      "label"     :  "Data",
+      "type"       : "DateField"
+   },
+   {
+      "name"     : "prima_vis_psicodiagn",
+      "label"     :  "1° Visita psicodiagnostica",
+      "type"       : "BooleanField"
+   },
+   {
+      "name"     : "data_prima_vis_psicodiagn",
+      "label"     :  "Data",
+      "type"       : "DateField"
+   },
+   {
+      "name"     : "vis_psic",
+      "label"     :  "Visita Psichiatrica",
+      "type"       : "BooleanField"
+   },
+   {
+      "name"     : "data_vis_psic",
+      "label"     :  "Data",
+      "type"       : "DateField"
+   },
+   {
+      "name"     : "vis_infet",
+      "label"     :  "Visita Infettivologica",
+      "type"       : "BooleanField"
+   },
+   {
+      "name"     : "data_vis_infet",
+      "label"     :  "Data",
+      "type"       : "DateField"
+   },
+   {
+      "name"     : "vis_card",
+      "label"     :  "Visita Cardiologica",
+      "type"       : "BooleanField"
+   },
+   {
+      "name"     : "data_vis_card",
+      "label"     :  "Data",
+      "type"       : "DateField"
+   },
+   {
+      "name"     : "visita_tossicologica",
+      "label"     :  "Visita Tossicologica: inserire l'esito della visita. Conclusioni e indicazioni(da riportare nel fascicolo di dimissioni)",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "visita_psichiatrica",
+      "label"     :  "Visita Psichiatrica: inserire l'esito della visita. Conclusioni e indicazioni(da riportare nel fascicolo di dimissioni)",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "colloqui_psicodiagnostici1",
+      "label"     :  "colloqui psicodiagnostici: Test eseguiti",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "colloqui_psicodiagnostici2",
+      "label"     :  "Psicogiagnosi: inserire l'orientamento psicodiagnostico. Conclusioni e indicazioni(da riportare nel fascicolo di dimissioni)",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "visita1",
+      "label"     :  "Visita: indicare il nome dello specialista",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "visita2",
+      "label"     :  "Inserire l'esito della visita di consulenza. Conclusioni e indicazioni(da riportare nel fascicolo di dimissioni)",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "allegati",
+      "label"     :  "Si allegano esami effettuati",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "esito",
+      "label"     :  "Esito dimissioni del paziente",
+      "type"       : "TextAreaField"
+   }
+   
+]

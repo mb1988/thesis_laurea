@@ -1,0 +1,11 @@
+name: asl
+framework:
+  type: python
+  runtime: python27
+services:
+  ${name}-db: postgresql
+  ${name}-fs: filesystem
+hooks:
+  pre-running: python manage.py setup
+processes:
+  web: python run.py

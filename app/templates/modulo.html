@@ -1,0 +1,224 @@
+<!doctype html>
+
+
+<head>
+
+<style type="text/css">
+#container1 {height:100%; width: 100%;}
+#cont1uno, #cont1due {float: left; height: 35px; }
+#cont1uno {width: 30%;border: 1px solid #000000;}
+#cont1due {width: 69%;border: 1px solid #000000;}
+
+#container2 {height:100%; width: 100%;}
+#uno, #due ,#tre, #quattro{float: left; height: 35px; }
+#uno {width: 20%;border: 1px solid #000000;}
+#due {width: 29%;border: 1px solid #000000;}
+#tre {width: 20%;border: 1px solid #000000;}
+#quattro {width: 29%;border: 1px solid #000000;}
+
+#container3 {height:100%; width: 100%;}
+#cont3uno, #cont3due ,#cont3tre{float: left; height: 35px; }
+#cont3uno {width: 10%;border: 1px solid #000000;}
+#cont3due {width: 59%;border: 1px solid #000000;}
+#cont3tre {width: 30%;border: 1px solid #000000;}
+
+</style>
+</head>
+
+<center><img src="http://www.asl.milano.it/user/assets/images/logo.jpg" alt="Regione Lombardia ASL Milano"/></center>
+
+<body>
+
+Milano,____/____/________<br/><br/>
+
+<div style="width: 300px;height:30px;border: 1px solid #000000;font:10pt;";display: block;">Cartella N° {{quest.cartella_N}}</div>
+
+<center><h3>Scheda Centro Diagnostico Polispecialistico</h3></center>
+
+<div id="container1"> 
+<div id="cont1uno" >Nome:</div>
+<div id="cont1due" style="text-align: center">{{quest.paziente.nome}}</div> 
+</div> 
+<br/>
+<br/>
+<div id="container1"> 
+<div id="cont1uno" >Cognome:</div>
+<div id="cont1due" style="text-align: center">{{quest.paziente.cognome}}</div> 
+</div> 
+<br/>
+<br/>
+<div id="container2"> 
+<div id="uno" >Luogo di nascita:</div>
+<div id="due" style="text-align: center"">{{quest.luogo_nasc}}</div> 
+<div id="uno" >Data di nascita:</div>
+<div id="due" style="text-align: center"">{{quest.data_nasc}}</div> 
+</div> 
+
+<div id="container2"> 
+<div id="uno" >Domicilio:</div>
+<div id="due" style="text-align: center"">{{quest.domicilio}}</div> 
+<div id="uno" >Città:</div>
+<div id="due" style="text-align: center"">{{quest.citta}}</div> 
+</div> 
+
+<div id="container2"> 
+<div id="uno" >Recapito telefonico:</div>
+<div id="due" style="text-align: center"">{{quest.recapito}}</div> 
+<div id="uno" >E-mail o altro recapito:</div>
+<div id="due" style="text-align: center"">{{quest.email}}</div> 
+</div> 
+
+<div id="container2"> 
+<div id="uno" >Servizio inviante:</div>
+<div id="due" style="text-align: center"">{{quest.servizio_inv}}</div> 
+<div id="uno" >Oper. e num. di riferimento:</div>
+<div id="due" style="text-align: center"">{{quest.operatore}}</div> 
+</div> 
+
+<h5><br/>Triage:</h5>
+{{quest.info_invio}}
+<br/>
+<br/>
+{{quest.servizio_inv_fam}}
+<h5>Appuntamenti fissati:</h5>
+<p style="text-indent:5em";><b>Oggetto:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data e ora:</b></p>
+<div id="container3">
+{% if quest.vis_tos == True %}
+<div id="cont3uno" >SI</div>
+{% else %}
+<div id="cont3uno" >NO</div>
+{% endif %}
+<div id="cont3due">Visita tossicologica</div> 
+<div id="cont3tre" >{{quest.data_vis_tos}}</div> 
+</div> 
+<div id="container3">
+{% if quest.ric_sost == True %}
+<div id="cont3uno" >SI</div>
+{% else %}
+<div id="cont3uno" >NO</div>
+{% endif %}
+<div id="cont3due"> - Effettuazione ricerca sostanze su campo biologico</div> 
+<div id="cont3tre" >{{quest.data_ric_sost}}</div> 
+</div> 
+<div id="container3">
+{% if quest.esami_siero == True %}
+<div id="cont3uno" >SI</div>
+{% else %}
+<div id="cont3uno" >NO</div>
+{% endif %}
+<div id="cont3due"> - Effettuazione esami sierologici</div> 
+<div id="cont3tre" >{{quest.data_esami_siero}}</div> 
+</div> 
+<div id="container3">
+{% if quest.esami_ematochimici == True %}
+<div id="cont3uno" >SI</div>
+{% else %}
+<div id="cont3uno" >NO</div>
+{% endif %}
+<div id="cont3due">- Richiesta esami ematochimici di routine</div> 
+<div id="cont3tre" >{{quest.data_esami_ematochimici}}</div> 
+</div> 
+<div id="container3">
+{% if quest.prima_vis_psicodiagn == True %}
+<div id="cont3uno" >SI</div>
+{% else %}
+<div id="cont3uno" >NO</div>
+{% endif %}
+<div id="cont3due"> 1° Visita psicodiagnostica</div> 
+<div id="cont3tre" >{{quest.data_prima_vis_psicodiagn}}</div> 
+</div> 
+<div id="container3">
+{% if quest.vis_psic == True %}
+<div id="cont3uno" >SI</div>
+{% else %}
+<div id="cont3uno" >NO</div>
+{% endif %}
+<div id="cont3due">Visita Psichiatrica</div> 
+<div id="cont3tre" >{{quest.data_vis_psic}}</div> 
+</div> 
+<div id="container3">
+{% if quest.vis_infet == True %}
+<div id="cont3uno" >SI</div>
+{% else %}
+<div id="cont3uno" >NO</div>
+{% endif %}
+<div id="cont3due">Visita Infettivologica</div> 
+<div id="cont3tre" >{{quest.data_vis_infet}}</div> 
+</div> 
+<div id="container3">
+{% if quest.vis_card == True %}
+<div id="cont3uno" >SI</div>
+{% else %}
+<div id="cont3uno" >NO</div>
+{% endif %}
+<div id="cont3due">Visita Cardiologica</div> 
+<div id="cont3tre" >{{quest.data_vis_card}}</div> 
+</div> 
+<center>L'infermiere del Triage:</center>
+
+<img src="http://www.asl.milano.it/user/assets/images/logo.jpg" alt="Regione Lombardia ASL Milano"/>
+<b>Scheda Centro Diagnostico Polispecialistico</b>
+<br/>
+Visita Tossicologica:
+<br/>
+{{quest.visita_tossicologica}}
+<br/>
+<center>Medico:(timbro e firma)</center>
+<br/><br/><br/>
+Visita Psichiatrica:
+<br/>
+{{quest.visita_psichiatrica}}
+<br/>
+<center>Medico:(timbro e firma)</center>
+<br/><br/><br/>
+Colloqui psicodiagnostici:
+<br/>
+Test eseguiti:
+<br/>
+{{quest.colloqui_psicodiagnostici1}}
+<br/>
+Psicodiagnosi:
+<br/>
+{{quest.colloqui_psicodiagnostici1}}
+<br/>
+<center>Referende del CDP</center>
+<br/><br/><br/>
+Visita: {{quest.visita1}}
+<br/>
+{{quest.visita2}}
+<br/>
+<center>Referende del CDP</center>
+<br/><br/><br/>
+Si allegano esami effettuati:
+<br/>
+{{quest.allegati}}
+<br/>
+Esito dimissioni del paziente:
+<br/>
+{{quest.esito}}
+<br/>
+<center>Referende del CDP</center>
+<br/><br/><br/>
+________________________________________________________________________________
+<center><FONT FACE=Arial" COLOR="#008800" SIZE="12"> AZIENDA SANITARIA LOCALE DI MILANO<br/>
+DIPARTIMENTO DIPENDENZE - Centro Diagnostico Polispecialistico<br/>
+ Via Canzio 18 – Milano 20131 – Tel. 0285781 Fax XXXXXXXXXXX   <br/>
+e-mail: CDP@asl.milano.it<br/>
+Codice fiscale e P. IVA 12319130154  -  sito:  http://www.asl.milano.it </FONT></center>
+
+
+</body>
+<!–
+Nome:{{quest.paziente.nome}}
+
+
+
+	Cognome: {{quest.paziente.cognome}}
+    
+	Centro: {%if quest.paziente.centro != None %}{{quest.paziente.centro}}{%endif%}
+	
+	{% for dom in model %}
+	{{ dom["label"] }}:{{document[dom["name"]]}}
+	{% endfor %}
+	
+–>

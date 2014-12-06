@@ -1,0 +1,200 @@
+{% macro pager(page, pages, generator) -%}
+{% if pages > 1 %}
+<div class="pagination">
+    <ul>
+    {% set min = page - 3 %}
+    {% set max = page + 3 + 1 %}
+
+    {% if min < 0 %}
+        {% set max = max - min %}
+    {% endif %}
+    {% if max >= pages %}
+        {% set min = min - max + pages %}
+    {% endif %}
+
+    {% if min < 0 %}
+        {% set min = 0 %}
+    {% endif %}
+    {% if max >= pages %}
+        {% set max = pages %}
+    {% endif %}
+
+    {% if min > 0 %}
+    <li>
+        <a href="{{ generator(0) }}">&laquo;</a>
+    </li>
+    {% else %}
+    <li class="disabled">
+        <a href="#">&laquo;</a>
+    </li>
+    {% endif %}
+    {% if page > 0 %}
+    <li>
+        <a href="{{ generator(page-1) }}">&lt;</a>
+    </li>
+    {% else %}
+    <li class="disabled">
+        <a href="#">&lt;</a>
+    </li>
+    {% endif %}
+
+    {% for p in range(min, max) %}
+    {% if page == p %}
+    <li class="active">
+        <a href="#">{{ p + 1 }}</a>
+    </li>
+    {% else %}
+    <li>
+        <a href="{{ generator(p) }}">{{ p + 1 }}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+
+    {% if page + 1 < pages %}
+    <li>
+        <a href="{{ generator(page + 1) }}">&gt;</a>
+    </li>
+    {% else %}
+    <li class="disabled">
+        <a href="#">&gt;</a>
+    </li>
+    {% endif %}
+    {% if max < pages %}
+    <li>
+        <a href="{{ generator(pages - 1) }}">&raquo;</a>
+    </li>
+    {% else %}
+    <li class="disabled">
+        <a href="#">&raquo;</a>
+    </li>
+    {% endif %}
+    </ul>
+</div>
+{% endif %}
+{%- endmacro %}
+
+{% macro render_form_fields(form, focus_set=False) %}
+	{{ form.hidden_tag() if form.hidden_tag is defined }}
+
+    {% for f in form if f.type != 'HiddenField' and f.type != 'CSRFTokenField' %}
+    <div class="control-group{% if f.errors %} error{% endif %}">
+    
+      {% if f.label.text == "Paziente" %}
+      	<center><h4>Questionario all’ingresso dell'intervista EUROPASI</h4></center>
+      {%endif%}
+      {% if f.label.text == "Indirizzo attuale"%}
+      	<center><h4>INFORMAZIONI GENERALI</h4></center>
+      {%endif%}
+      {% if f.label.text == "Problemi medici" %}
+      	<center><h4>PROFILO DI GRAVITA'</h4></center>
+      {%endif%}
+      {% if f.label.text == "Quante volte nella sua vita è stato ricoverato per problemi medici (escluso disintossicazioni incluso overdosi e delirium tremens) (NN)?" %}
+      	<center><h4>CONDIZIONE MEDICA</h4></center>
+      {%endif%}
+      {% if f.label.text == "Quanti anni di scuola ha completato (AA)?" %}
+      	<center><h4>CONDIZIONE LAVORATIVA / DI SOSTENTAMENTO</h4></center>
+      {%endif%}
+      {% if f.label.text == "Lavoro" %}
+      	Negli ultimi 30 giorni, da quali fra le seguenti fonti ha ricevuto denaro per il suo sostentamento?
+      {%endif%}
+      {% if f.label.text == "Alcol (qualunque uso) età iniziale" %}
+      	<center><h4>USO DI ALCOL / USO DI SOSTANZE PSICORTOPE<br/></h4>
+      	SPECIFICARE IN DETTAGLIO IL TIPO DI SOSTANZE (v. Appendice 5 per categorie farmacologiche) E LE MODALITA' DI USO (v. Manuale per definizioni di uso):</center>
+      {%endif%}
+      {% if f.label.text == "Ambulatoriale di disintossicazione per alcol" %}
+      	SPECIFICARE ANALITICAMENTE IL TIPO DI SERVIZI ED IL NUMERO DI TRATTAMENTI RICEVUTI NEL CORSO DELLA VITA PER USO DI ALCOL E/O DI ALTRE SOSTANZE (v. Manuale):
+      {%endif%}
+      {% if f.label.text == "Il presente trattamento è stato proposto o imposto dall'Autorità amministrativa o giudiziaria?" %}
+      	<center><h4>CONDIZIONE LEGALE</h4></center>
+      {%endif%}
+      {% if f.label.text == "Nonna materna alcol" %}
+      	<center><h4>STORIA FAMILIARE</h4>
+      	Qualcuno fra i suoi familiari ha mai avuto quello che Lei potrebbe definire un problema importante da uso di alcol o di altre sostanze ovvero un problema psichiatrico importante, e cioè dei problemi che abbiano condotto o avrebbero dovuto condurre ad un trattamento? </center>
+      <br/><br/>
+      CODIFICARE LE RISPOSTE A QUESTA DOMANDA COME SEGUE (v. Manuale):
+      <br/><br/>0 = No, per tutti i familiari appartenenti alla specifica categoria;
+      <br/>1 = Sì, per qualunque familiare appartenente alla specifica categoria;
+      <br/>X = Il probando non sa o è incerto;
+      <br/>N = Non è mai esistito un familiare della specifica categoria.
+      <br/><br/>
+      NOTA: codificare il familiare più grave se ne esiste più di uno nella stessa categoria
+      {%endif%}
+      {% if f.label.text == "Stato civile attuale:" %}
+      	<center><h4>RELAZIONI FAMILIARI/SOCIALI</h4></center>
+      {%endif%}
+      {% if f.label.text == "Madre" %}
+      CODIFICARE LE RISPOSTE A QUESTE DOMANDA COME SEGUE (v. Manuale):
+      <br/><br/>0 = No, per tutti i familiari appartenenti alla specifica categoria;
+      <br/>1 = Sì, per qualunque familiare appartenente alla specifica categoria;
+      <br/>X = Il probando non sa o è incerto;
+      <br/>N = Non è mai esistito un familiare della specifica categoria.
+	  <br/><br/>Direbbe di aver avuto delle relazioni personali strette e durature con qualcuna fra le seguenti persone nella sua vita?
+
+</center>
+      {%endif%}
+      {% if f.label.text == "Madre negli ultimi 30 giorni" %}
+      Vi sono stati dei periodi significativi durante i quali ha avuto seri problemi nel portare avanti la relazione con (v. manuale) :
+      {%endif%}
+      {% if f.label.text == "Quante volte ha ricevuto un trattameno per problemi psicologici o emozionali in regime di ricovero o residenziale?" %}
+      	<center><h4>CONDIZIONE PSICHICA</h4></center>
+      {%endif%}
+      {% if f.label.text == "Depressione grave negli ultimi 30 giorni" %}
+      	Vi è stato un periodo significativo durante il quale ha avuto qualcuno fra i seguenti problemi che non fossero una conseguenza diretta dell'uso di alcol o di altre sostanze (v. Manuale per le definizioni appropriate):
+      {%endif%}
+      
+      
+      {{ f.label() }}
+            
+            
+        <div>
+          {% if not focus_set %}
+          {{ f(autofocus='autofocus')|safe }}
+          {% set focus_set = True %}
+          {% else %}
+          {{ f()|safe }}
+          {% endif %}
+        </div>
+        {% if f.description %}
+        <p class="help-block">{{ f.description }}</p>
+        {% endif %}
+        {% if f.errors %}
+          <ul>
+          {% for e in f.errors if e is string %}
+            <li>{{ e }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      
+    </div>
+    {% endfor %}
+{% endmacro %}
+
+{% macro form_tag() %}
+    <form action="" method="POST" class="form-horizontal"{% if form.has_file_field %} enctype="multipart/form-data"{% endif %}>
+      <fieldset>
+        {{ caller() }}
+      </fieldset>
+    </form>
+{% endmacro %}
+
+{% macro render_form_buttons(cancel_url, extra=None) %}
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn btn-primary btn-large" value="{{ _gettext('Submit') }}" />
+        {% if extra %}
+        {{ extra }}
+        {% endif %}
+        {% if cancel_url %}
+        <a href="{{ cancel_url }}" class="btn btn-large">{{ _gettext('Cancel') }}</a>
+        {% endif %}
+      </div>
+    </div>
+{% endmacro %}
+
+{% macro render_form(form, cancel_url, extra=None) -%}
+    {% call form_tag() %}
+        {{ render_form_fields(form) }}
+        {{ render_form_buttons(cancel_url, extra) }}
+    {% endcall %}
+{% endmacro %}
+
