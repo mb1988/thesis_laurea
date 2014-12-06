@@ -1,0 +1,14 @@
+<!doctype html>
+
+<center><h4>LISTA MEDICI</h4></center>
+
+{% for med in medici %}
+	<p>NOME: {{med.nome}}</p>
+	<p>COGNOME: {{med.cognome}}</p>
+	<p>CENTRO: {%if med.centro != None %}{{med.centro}}{%endif%}</p>
+	<br>
+	
+	
+{% endfor %}
+
+

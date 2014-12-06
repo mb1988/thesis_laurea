@@ -1,0 +1,60 @@
+<!doctype html>
+	
+	<center><h4>Questionario di follow-up dell'intervista EuropASI</h4></center>
+	
+	Cognome: {{quest_ingresso.paziente.cognome}}<br/><br/>
+    Nome: {{quest_ingresso.paziente.nome}}<br/><br/>
+	Centro: {%if quest_ingresso.paziente.centro != None %}{{quest_ingresso.paziente.centro}}{%endif%}<br/><br/>
+
+
+	{% for dom in model %}
+	
+	{% if dom["name"] == "indirizzo" %}
+      	<center><h4>INFORMAZIONI GENERALI</h4></center>
+    {%endif%}
+    {% if dom["name"] == "num_ricoveri" %}
+      	<center><h4>CONDIZIONE MEDICA</h4></center>
+    {%endif%}  
+    {% if dom["name"] == "anni_scuola" %}
+      	<center><h4>CONDIZIONE LAVORATIVA / DI SOSTENTAMENTO</h4></center>
+      {%endif%}
+      {% if dom["name"] == "alcol_qu_30g" %}
+      	<center><h4>USO DI ALCOL / USO DI SOSTANZE PSICORTOPE<br/></h4>
+      	SPECIFICARE IN DETTAGLIO IL TIPO DI SOSTANZE (v. Appendice 5 per categorie farmacologiche) E LE MODALITA' DI USO (v. Manuale per definizioni di uso):</center><br/>
+      {%endif%}
+      {% if dom["name"] == "ambul_disintos_alcol" %}
+      	SPECIFICARE ANALITICAMENTE IL TIPO DI SERVIZI ED IL NUMERO DI TRATTAMENTI RICEVUTI NEL CORSO DELLA VITA PER USO DI ALCOL E/O DI ALTRE SOSTANZE (v. Manuale):<br/>
+      {%endif%}
+      {% if dom["name"] == "liberta_condizionata" %}
+      	<center><h4>CONDIZIONE LEGALE</h4></center>
+      {%endif%}
+      {% if dom["name"] == "stato_civile" %}
+      	<center><h4>RELAZIONI FAMILIARI/SOCIALI</h4></center>
+      {%endif%}
+      {% if dom["name"] == "relaz_madre" %}
+      CODIFICARE LE RISPOSTE A QUESTE DOMANDA COME SEGUE (v. Manuale):
+      <br/><br/>0 = No, per tutti i familiari appartenenti alla specifica categoria;
+      <br/>1 = Sì, per qualunque familiare appartenente alla specifica categoria;
+      <br/>X = Il probando non sa o è incerto;
+      <br/>N = Non è mai esistito un familiare della specifica categoria.
+	  <br/><br/>Direbbe di aver avuto delle relazioni personali strette e durature con qualcuna fra le seguenti persone nella sua vita?<br/>
+
+</center>
+      {%endif%}
+      {% if dom["name"] == "tratt_psichico_ricovero" %}
+      	<center><h4>CONDIZIONE PSICHICA</h4></center>
+      {%endif%}
+	  {% if dom["name"] == "depressione" %}
+      	Vi è stato un periodo significativo durante il quale ha avuto qualcuno fra i seguenti problemi che non fossero una conseguenza diretta dell'uso di alcol o di altre sostanze (v. Manuale per le definizioni appropriate):<br/>
+      {%endif%}
+        
+      
+	{% if dom["label"] == "Annotazioni" or dom["label"] == "Commenti" %}
+	<center>{{ dom["label"] }}</center>
+	{%else%}
+	{{ dom["label"] }}
+	{%endif%}
+	<br/><br/> <i>{{document[dom["name"]]}}</i><br/><br/>
+	{% endfor %}
+	
+

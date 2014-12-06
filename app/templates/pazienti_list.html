@@ -1,0 +1,16 @@
+<!doctype html>
+
+<center><h4>LISTA PAZIENTI</h4></center>
+
+{% for paz in pazienti %}
+	<p>NOME: {{paz.nome}}</p>
+	<p>COGNOME: {{paz.cognome}}</p>
+	<p>NASCITA: {{paz.nascita}}</p>
+	<p>CENTRO: {%if paz.centro != None %}{{paz.centro}}{%endif%}</p>
+	<p>MEDICO: {%if paz.medico != None %}{{paz.medico}}{%endif%}</p>
+	<br>
+	
+	
+{% endfor %}
+
+

@@ -1,0 +1,10 @@
+Flask
+Flask-Admin==1.0.4
+Flask-Login
+Flask-Script
+Flask-SQLAlchemy
+psycopg2
+mongoengine
+flask-mongoengine
+Flask-WeasyPrint
+

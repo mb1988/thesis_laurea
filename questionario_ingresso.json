@@ -1,0 +1,1889 @@
+[
+
+   {
+      "name"     : "trattamento",
+      "label"     :  "tipo di trattamento",
+      "type"       : "SelectField",
+      "choices"	: {"0 - non in trattamento":"non in trattamento","1 - ambulatoriale di disintossicazione":"ambulatoriale di disintossicazione","2 - residenziale di disintossicazione":"residenziale di disintossicazione","3 - sostitutivo ambulatoriale":"sostitutivo ambulatoriale","4 - ambulatoriale drug-free":"ambulatoriale drug-free","5 - residenziale drug-free":"residenziale drug-free","6 - day-care":"day-care","7 - ospedale psichiatrico":"ospedale psichiatrico","8 - altro ospedale":"altro ospedale","9 - altro tratt./non specificato":"altro trattamento/non specificato"}
+   },
+   {
+      "name"     : "descrizione1",
+      "label"     :  "descrizione",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "data_trattamento",
+      "label"     :  "Data di ammissione in trattamento",
+      "type"       : "DateField"
+   },  
+   {
+      "name"     : "data_intervista",
+      "label"     :  "Data di esecuzione dell'intervista",
+      "type"       : "DateField"
+   },  
+   {
+      "name"     : "ora_inizio",
+      "label"     :  "orario di inizio",
+      "type"       : "TimeField"
+   },
+   {
+      "name"     : "ora_fine",
+      "label"     :  "orario di conclusione",
+      "type"       : "TimeField"
+   },
+   {
+      "name"     : "sesso",
+      "label"     :  "sesso",
+      "type"       : "SelectField",
+      "choices"	: {"1 - maschio":"maschio","2 - femmina":"femmina"}
+   },
+   {
+      "name"     : "intervistatore",
+      "label"     :  "intervistatore",
+      "type"       : "StringField"
+   } ,
+   {
+      "name"     : "esito_intervista",
+      "label"     :  "Esito dell'intervista",
+      "type"       : "SelectField",
+      "choices"	: {"1 - completa":"completa","2 - rifiutata":"rifiutata","3 - non in grado di rispondere":"non in grado di rispondere"}
+    },
+   {
+      "name"     : "annotazioni",
+      "label"     :  "Annotazioni",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "indirizzo",
+      "label"     :  "Indirizzo attuale",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "luogo_residenza",
+      "label"     :  "Caratteristiche del luogo di residenza",
+      "type"       : "SelectField",
+      "choices"	: {"1 - Grande centro":"Grande centro(>100.000abitanti)","2 - medio centro":"Medio centro(10.000-100.000 abitanti)","3 - Piccolo centro o rurale":"Piccolo centro o rurale(<10.000 abitanti)"}
+   },
+   {
+      "name"     : "cap",
+      "label"     :  "Codice di avviamento postale",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "tempo_residenza",
+      "label"     :  "Da quanto tempo abita a questo indirizzo(AA MM)?",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "proprieta_residenza",
+      "label"     :  "L'abitazione di residenza è di proprietà sua o della sua famiglia?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "eta",
+      "label"     :  "Età (AA)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "nascita",
+      "label"     :  "Data di nascita (GG MM AA)",
+      "type"       : "DateField"
+   },
+   {
+      "name"     : "nazionalita",
+      "label"     :  "Nazionalità (codici in App. 8)",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "luogo_nascita_probando",
+      "label"     :  "Luogo di nascita del probando",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "luogo_nascita_padre",
+      "label"     :  "Luogo di nascita del padre",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "luogo_nascita_madre",
+      "label"     :  "Luogo di nascita della madre",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "ambiente_confinato",
+      "label"     :  "Si è trovato in ambiente confinato negli ultimi 30 giorni?",
+      "type"       : "SelectField",
+      "choices"	: {"1 - no":"no","2 - carcere":"carcere","3 - trattamento ospedaliero/residenziale per tossicodipendenza/alcoliscmo":"trattamento ospedaliero/residenziale per tossicodipendenza/alcoliscmo","4 - trattemento medico ospedaliero":"trattemento medico ospedaliero","5 - trattamento psichiatrico ospedaliero/residenziale":"trattamento psichiatrico ospedaliero/residenziale","6 - trattamento residenziale di disintossicazione":"trattamento residenziale di disintossicazione","7 - altro":"altro"}
+   },
+   {
+      "name"     : "descrizione2",
+      "label"     :  "Descrizione",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "quanti_gg",
+      "label"     :  "Per quanti giorni(GG)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "problemi_medici",
+      "label"     :  "Problemi medici",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "problemi_lavoro",
+      "label"     :  "Problemi lavoro",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "problemi_alcol",
+      "label"     :  "Problemi alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "problemi_droga",
+      "label"     :  "Problemi droga",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "problemi_legali",
+      "label"     :  "Problemi legali",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "problemi_fam_soc",
+      "label"     :  "Problemi familiari/sociali",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "problemi_psichici",
+      "label"     :  "Problemi psichici",
+      "type"       : "SelectField",
+      "choices"	:{"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "num_ricoveri",
+      "label"     :  "Quante volte nella sua vita è stato ricoverato per problemi medici (escluso disintossicazioni incluso overdosi e delirium tremens) (NN)?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "tempo_ult_ricov",
+      "label"     :  "Quanto tempo è trascorso dall'ultimo ricovero per problemi si salute fisica (AA MM)?",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "problema_medico",
+      "label"     :  "Ha qualche problema medico cronico che continua a interferire con la sua vita?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "epatite",
+      "label"     :  "E' mai stato infettato da virus dell'epatite?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si","2 - Non sa":"Non sa","3 - Rifiuta":"Rifiuta"}
+   },
+   {
+      "name"     : "hiv",
+      "label"     :  "Si è mai sottoposto al test per l'HIV",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si","2 - Non sa":"Non sa","3 - Rifiuta":"Rifiuta"}
+   },
+   {
+      "name"     : "mesi_test_hiv",
+      "label"     :  "Se si, quanti mesi or sono (MM)?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "esito_hiv",
+      "label"     :  "Se si, qual è stato il risultato dell'ultimo test?",
+      "type"       : "StringField",
+      "type"       : "SelectField",
+      "choices"	: {"0 - Negativo":"Negativo","1 - Positivo":"Positivo","2 - Non sa":"Non sa","3 - Rifiuta":"Rifiuta"}
+   },
+   {
+      "name"     : "assume_farmaci",
+      "label"     :  "Sta assumendo con regolarità qualche farmaco dietro prescrizione medica per problemi fisici?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "pensione_invalidita",
+      "label"     :  "Riceve una pensione di invalidità fisica (esclusa invalidità psichica)?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "cura_medica",
+      "label"     :  "E' stato curato da un medico per problemi di salute fisica negli ultimi 6 mesi?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "giorni_prob_medici",
+      "label"     :  "Per quanti giorni ha sofferto di problemi medici negli ultimi 30 giorni (GG)?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "preocc_probl_medici",
+      "label"     :  "Quanto è stato preoccupato o disturbato per questi problemi di salute fisica negli ultimi 30 giorni?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "tratt_probl_medici",
+      "label"     :  "In questo momento quanto è importante per lei ricevere un trattamento per questi problemi medici?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "val_tratt_medico",
+      "label"     :  "Come valuteresti il bisogno di trattamento medico del soggetto",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "condmed_inattendibilita_intervistato",
+      "label"     :  "Le precedenti informazioni sono significativamente distorte dall'inattendibilità dell'intervistato?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "condmed_incapacita_intervistato",
+      "label"     :  "Le precedenti informazioni sono significativamente distorte dall'incapacità dell'intervistato?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "commenti_condmed",
+      "label"     :  "Commenti",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "anni_scuola",
+      "label"     :  "Quanti anni di scuola ha completato (AA)?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "anni_studi_superiori",
+      "label"     :  "Quanti anni di studi superiori (universitari o assimilati) ha completato (AA)?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "titolo_studio",
+      "label"     :  "Qual è il più elevato titolo di studio che ha conseguito?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - Nessuno":"Nessuno","1 - Licenza elementare":"Licenza elementare", "2 - Licenza media inferiore":"Licenza media inferiore","3 - Diploma professionale(<5 anni)":"Diploma professionale(<5 anni)", "4 - Diploma media superiore (5 anni)":"Diploma media superiore","5 - Laurea o assimilato":"Laurea o assimilato"}
+   },
+   {
+      "name"     : "patente",
+      "label"     :  "Ha una patente di guida valida?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "periodo_occupazione",
+      "label"     :  "Quanto è durato il più lungo periodo di occupazione regolare (AA MM)?",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "periodo_disoccupazione",
+      "label"     :  "Quanto è durato il più lungo periodo di disoccupazione (AA MM)?",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "occupazione_regolare",
+      "label"     :  "Occupazione regolare o ultima (codici in App. 4)",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "impiego abituale",
+      "label"     :  "Modalità di impiego naturale negli ultimi 3 anni",
+      "type"       : "SelectField",
+      "choices"	: {"1 - tempo pieno":"tempo pieno", "2 - tempo parziale(con orario regolare)":"tempo parziale(con orario regolare)","3 - tempo paziale(orario non regolare, lavoro saltuario)":"tempo paziale(orario non regolare, lavoro saltuario)", "4 - studente":"studente","5 - servizio militare (di leva)":"servizio militare (di leva)","6 - in pensionre(vecchiaia,invalidità,...)":"in pensionre(vecchiaia,invalidità,...)","7 - disoccupato (incluso casalinga)":"dicossupato (incluso casalinga)","8 - in ambiente confinato(c.t.,...)":"in ambiente confinato(c.t.,...)"}
+   },
+   {
+      "name"     : "giorni_lavoro",
+      "label"     :  "Per quanti giorni ha lavorato negli ultimi 30 giorni (includere lavoro nero; escludere spaccio, prostituzione o altre attività illegali) (GG)?",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "lavoro",
+      "label"     :  "Lavoro",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "indennita",
+      "label"     :  "Indennità di disoccupazione (incluso cassa integrazione)",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "sussidi",
+      "label"     :  "Sussidi sociali (escluso pensione)",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "pensione",
+      "label"     :  "Pensione(invalidità, vecchiaia, etc.)",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "partner_fam_amici",
+      "label"     :  "Partner, familiari, amici (denaro liquido per spese personali)",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "attivita_illegali",
+      "label"     :  "Attività illegali",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "prostituzione",
+      "label"     :  "Prostituzione",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "altro",
+      "label"     :  "Altro",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "fonte_sostentamento",
+      "label"     :  "Fra queste, qual'è stata la più importante fonte di sostentamento?",
+      "type"       : "SelectField",
+      "choices"	: {"1 - Lavoro":"Lavoro","2 - Indennità di disoccupazione":"Indennità di disoccupazione","3 - Sussidi sociali":"Sussidi sociali","4 - Pensione":"Pensione","5 - Partner, familiari, amici":"Partner, familiari, amici","6 - Attività illegali":"Attività illegali","7 - Prostituzione":"Indennità di disoccupazione","8 - Altro":"Altro"}
+   },
+   {
+      "name"     : "reddito",
+      "label"     :  "Negli ultimi 30 giorni, qual è stato l'ammontare netto del suo reddito da lavoro?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "debiti",
+      "label"     :  "Ha debiti?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "persone_carico",
+      "label"     :  "Quante persone dipendono da Lei per la maggior parte del loro sostentamento (vitto, alloggio, vestiario) (N)?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "problemi_lavoro_30g",
+      "label"     :  "Per quanti giorni ha avuto problemi di lavoro o è stato disoccupato negli ultimi 30 giorni (GG)?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "preocc_probl_lav",
+      "label"     :  "Quanto è stato preoccupato o disturbato per questi problemi di lavoro negli ultimi 30 giorni?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "consulenza",
+      "label"     :  "In questo momento quanto è importante per lei ricevere una consulenza per questi problemi di lavoro?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "valutazione_gravita",
+      "label"     :  "Come valuteresti il bisogno di consulenza lavorativa del soggetto?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "condlav_inattendibilita_intervistato",
+      "label"     :  "Le precedenti informazioni sono significativamente distorte dall'inattendibilità dell'intervistato?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "condlav_incapacita_intervistato",
+      "label"     :  "Le precedenti informazioni sono significativamente distorte dall'incapacità dell'intervistato?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "commenti_condlav",
+      "label"     :  "Commenti",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "alcol_qu_eta_ini",
+      "label"     :  "Alcol (qualunque uso) età iniziale",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "alcol_qu_num_v",
+      "label"     :  "Alcol (qualunque uso) numero di volte nella vita",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "alcol_qu_30g",
+      "label"     :  "Alcol (qualunque uso) ultimi 30 giorni",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "alcol_qu_via",
+      "label"     :  "Alcol (qualunque uso) via",
+      "type"       : "SelectField",
+      "choices"	: {"1 - orale":"orale","2 - nasale":"nasale","3 - fumo":"fumo","4 - iniezione sottocutanea o intramuscolare":"iniezione sottocutanea o intramuscolare","5 - iniezione endovenosa":"iniezione endovenosa"}
+   },
+   {
+      "name"     : "alcol_os_eta_ini",
+      "label"     :  "Alcol (oltre la soglia) età iniziale",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "alcol_os_num_v",
+      "label"     :  "Alcol (oltre la soglia) numero di volte nella vita",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "alcol_os_30g",
+      "label"     :  "Alcol (oltre la soglia) ultimi 30 giorni",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "alcol_os_via",
+      "label"     :  "Alcol (oltre la soglia) via",
+      "type"       : "SelectField",
+      "choices"	: {"1 - orale":"orale","2 - nasale":"nasale","3 - fumo":"fumo","4 - iniezione sottocutanea o intramuscolare":"iniezione sottocutanea o intramuscolare","5 - iniezione endovenosa":"iniezione endovenosa"}
+   },
+   {
+      "name"     : "eroina_eta_ini",
+      "label"     :  "Eroina età iniziale",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "eroina_num_v",
+      "label"     :  "Eroina numero di volte nella vita",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "eroina_30g",
+      "label"     :  "Eroina ultimi 30 giorni",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "eroina_via",
+      "label"     :  "Eroina via",
+      "type"       : "SelectField",
+      "choices"	: {"1 - orale":"orale","2 - nasale":"nasale","3 - fumo":"fumo","4 - iniezione sottocutanea o intramuscolare":"iniezione sottocutanea o intramuscolare","5 - iniezione endovenosa":"iniezione endovenosa"}
+   },
+   {
+      "name"     : "metadone_eta_ini",
+      "label"     :  "Metadone età iniziale",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "metadone_num_v",
+      "label"     :  "Metadone numero di volte nella vita",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "metadone_30g",
+      "label"     :  "Metadone ultimi 30 giorni",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "metadone_via",
+      "label"     :  "Metadone via",
+      "type"       : "SelectField",
+      "choices"	: {"1 - orale":"orale","2 - nasale":"nasale","3 - fumo":"fumo","4 - iniezione sottocutanea o intramuscolare":"iniezione sottocutanea o intramuscolare","5 - iniezione endovenosa":"iniezione endovenosa"}
+   },
+   {
+      "name"     : "altri_opp_eta_ini",
+      "label"     :  "Altri oppiacei età iniziale",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "altri_opp_num_v",
+      "label"     :  "Altri oppiacei numero di volte nella vita",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "altri_opp_30g",
+      "label"     :  "Altri oppiacei ultimi 30 giorni",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "altri_opp_via",
+      "label"     :  "Altri oppiacei via",
+      "type"       : "SelectField",
+      "choices"	: {"1 - orale":"orale","2 - nasale":"nasale","3 - fumo":"fumo","4 - iniezione sottocutanea o intramuscolare":"iniezione sottocutanea o intramuscolare","5 - iniezione endovenosa":"iniezione endovenosa"}
+   },
+   {
+      "name"     : "sedativi_ini",
+      "label"     :  "Sedativi (barbiturici,benzodiazepine,...) età iniziale",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "sedativi_num_v",
+      "label"     :  "Sedativi (barbiturici,benzodiazepine,...) numero di volte nella vita",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "sedativi_30g",
+      "label"     :  "Sedativi (barbiturici,benzodiazepine,...) ultimi 30 giorni",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "sedativi_via",
+      "label"     :  "Sedativi (barbiturici,benzodiazepine,...) via",
+      "type"       : "SelectField",
+      "choices"	: {"1 - orale":"orale","2 - nasale":"nasale","3 - fumo":"fumo","4 - iniezione sottocutanea o intramuscolare":"iniezione sottocutanea o intramuscolare","5 - iniezione endovenosa":"iniezione endovenosa"}
+   },
+   {
+      "name"     : "cocaina_eta_ini",
+      "label"     :  "Cocaina età iniziale",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "cocaina_num_v",
+      "label"     :  "Cocaina numero di volte nella vita",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "cocaina_30g",
+      "label"     :  "Cocaina ultimi 30 giorni",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "cocaina_via",
+      "label"     :  "Cocaina via",
+      "type"       : "SelectField",
+      "choices"	: {"1 - orale":"orale","2 - nasale":"nasale","3 - fumo":"fumo","4 - iniezione sottocutanea o intramuscolare":"iniezione sottocutanea o intramuscolare","5 - iniezione endovenosa":"iniezione endovenosa"}
+   },
+   {
+      "name"     : "anfetamine_eta_ini",
+      "label"     :  "Anfetamine età iniziale",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "anfetamine_num_v",
+      "label"     :  "Anfetamine numero di volte nella vita",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "anfetamine_30g",
+      "label"     :  "Anfetamine ultimi 30 giorni",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "anfetamine_via",
+      "label"     :  "Anfetamine via",
+      "type"       : "SelectField",
+      "choices"	: {"1 - orale":"orale","2 - nasale":"nasale","3 - fumo":"fumo","4 - iniezione sottocutanea o intramuscolare":"iniezione sottocutanea o intramuscolare","5 - iniezione endovenosa":"iniezione endovenosa"}
+   },
+   {
+      "name"     : "cannabis_eta_ini",
+      "label"     :  "Cannabis età iniziale",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "cannabis_num_v",
+      "label"     :  "Cannabis numero di volte nella vita",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "cannabis_30g",
+      "label"     :  "Cannabis ultimi 30 giorni",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "cannabis_via",
+      "label"     :  "Cannabis via",
+      "type"       : "SelectField",
+      "choices"	: {"1 - orale":"orale","2 - nasale":"nasale","3 - fumo":"fumo","4 - iniezione sottocutanea o intramuscolare":"iniezione sottocutanea o intramuscolare","5 - iniezione endovenosa":"iniezione endovenosa"}
+   },
+   {
+      "name"     : "allucinogeni_eta_ini",
+      "label"     :  "Allucinogeni età iniziale",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "allucinogeni_num_v",
+      "label"     :  "Allucinogeni numero di volte nella vita",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "allucinogeni_30g",
+      "label"     :  "Allucinogeni ultimi 30 giorni",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "allucinogeni_via",
+      "label"     :  "Allucinogeni via",
+      "type"       : "SelectField",
+      "choices"	: {"1 - orale":"orale","2 - nasale":"nasale","3 - fumo":"fumo","4 - iniezione sottocutanea o intramuscolare":"iniezione sottocutanea o intramuscolare","5 - iniezione endovenosa":"iniezione endovenosa"}
+   },
+   {
+      "name"     : "inalanti_eta_ini",
+      "label"     :  "Inalanti età iniziale",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "inalanti_num_v",
+      "label"     :  "Inalanti numero di volte nella vita",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "inalanti_30g",
+      "label"     :  "Inalanti ultimi 30 giorni",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "inalanti_via",
+      "label"     :  "Inalanti via",
+      "type"       : "SelectField",
+      "choices"	: {"1 - orale":"orale","2 - nasale":"nasale","3 - fumo":"fumo","4 - iniezione sottocutanea o intramuscolare":"iniezione sottocutanea o intramuscolare","5 - iniezione endovenosa":"iniezione endovenosa"}
+   },
+   {
+      "name"     : "altra_sost",
+      "label"     :  "Altra sostanza",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "altra_sost_eta_ini",
+      "label"     :  "Altra sostanza età iniziale",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "altra_sost_num_v",
+      "label"     :  "Altra sostanza numero di volte nella vita",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "altra_sost_30g",
+      "label"     :  "Altra sostanza ultimi 30 giorni",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "altra_sost_via",
+      "label"     :  "Altra sostanza via",
+      "type"       : "SelectField",
+      "choices"	: {"1 - orale":"orale","2 - nasale":"nasale","3 - fumo":"fumo","4 - iniezione sottocutanea o intramuscolare":"iniezione sottocutanea o intramuscolare","5 - iniezione endovenosa":"iniezione endovenosa"}
+   },
+   {
+      "name"     : "piu_sost_eta_ini",
+      "label"     :  "Più di una sostanza (al giorno incluso alcol) età iniziale",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "piu_sost_num_v",
+      "label"     :  "Più di una sostanza (al giorno incluso alcol) numero di volte nella vita",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "piu_sost_30g",
+      "label"     :  "Più di una sostanza (al giorno incluso alcol) ultimi 30 giorni",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "piu_sost_via",
+      "label"     :  "Più di una sostanza (al giorno incluso alcol) via",
+      "type"       : "SelectField",
+      "choices"	: {"1 - orale":"orale","2 - nasale":"nasale","3 - fumo":"fumo","4 - iniezione sottocutanea o intramuscolare":"iniezione sottocutanea o intramuscolare","5 - iniezione endovenosa":"iniezione endovenosa"}
+   },
+   {
+      "name"     : "via_iniettiva",
+      "label"     :  "Ha mai usato la via iniettiva?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "via_iniettiva_eta_ini",
+      "label"     :  "Se ha mai usato qualche volta la via iniettiva specificare (vedi manuale) età iniziale",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "via_iniettiva_num_v",
+      "label"     :  "Se ha mai usato qualche volta la via iniettiva specificare (vedi manuale) numero di volte nella vita",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "via_iniettiva_6m",
+      "label"     :  "Se ha mai usato qualche volta la via iniettiva specificare (vedi manuale) negli ultimi 6 mesi",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "via_iniettiva_30g",
+      "label"     :  "Se ha mai usato qualche volta la via iniettiva specificare (vedi manuale) negli ultimi 30 giorni",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "via_iniettiva_6m_scambio",
+      "label"     :  "Se ha usato la via iniettiva negli ultimi 6 mesi, specificare",
+      "type"       : "SelectField",
+      "choices"	: {"1 - senza scambiare":"senza scambiare","2 - scambiando a volte":"scambiando a volte","3 - cambiando frequentemente con altri":"cambiando frequentemente con altri"}
+   },
+   {
+      "name"     : "delirium_alcol",
+      "label"     :  "Quante volte ha avuto delirium tremens da alcol?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "overdose",
+      "label"     :  "Quante volte ha avuto overdose da altre sostanze",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "ambul_disintos_alcol",
+      "label"     :  "Ambulatoriale di disintossicazione per alcol",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "ambul_disintos_altre_sost",
+      "label"     :  "Ambulatoriale di disintossicazione per altre sostanze",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "resid_disintos_alcol",
+      "label"     :  "Residenziale di disintossicazione per alcol",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "resid_disintos_altre_sost",
+      "label"     :  "Residenziale di disintossicazione per altre sostanze",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "sost_ambul_alcol",
+      "label"     :  "Sostitutivo ambulatoriale per alcol",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "sost_ambul_altre_sost",
+      "label"     :  "Sostitutivo ambulatoriale per altre sostanze",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "ambul_drugfree_alcol",
+      "label"     :  "Ambulatoriale drug-free per alcol",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "ambul_drugfree_altre_sost",
+      "label"     :  "Ambulatoriale drug-free per altre sostanze",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "resid_drugfree_alcol",
+      "label"     :  "Residenziale drug-free per alcol",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "resid_drugfree_altre_sost",
+      "label"     :  "Residenziale drug-free per altre sostanze",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "semiresid_alcol",
+      "label"     :  "Semiresidenziale diurno per alcol",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "semiresid_altre_sost",
+      "label"     :  "Semiresidenziale diurno per altre sostanze",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "osp_psic_alcol",
+      "label"     :  "In ospedale o reparto psichiatrico per alcol",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "osp_pisc_altre_sost",
+      "label"     :  "In ospedale o reparto psichiatrico per altre sostanze",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "altro_osp_alcol",
+      "label"     :  "In altro ospedale o reparto per alcol",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "altro_osp_altre_sost",
+      "label"     :  "In altro ospedale o reparto per altre sostanze",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "altri_tratt_alcol",
+      "label"     :  "Altri trattamenti per alcol",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "altri_tratt_altre_sost",
+      "label"     :  "Altri trattamenti per altre sostanze",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "descrizione3",
+      "label"     :  "Descrizione",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "ast_alcol",
+      "label"     :  "Come risultato di questi trattamenti, quanti mesi è durato il più lungo periodo di astensione dall'alcol? (MM)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "ast_altre_sost",
+      "label"     :  "Come risultato di questi trattamenti, quanti mesi è durato il più lungo periodo di astensione dalle altre sostanze? (MM)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "probl_princ",
+      "label"     :  "Quale sostanza costituisce il problema principale?",
+      "type"       : "SelectField",
+      "choices"	: {"00 - nessun problema":"nessun problema","1 - alcol":"alcol","2 - eroina":"eroina","3 - metadone":"metadone","4 - altri oppiacei":"altri oppiacei","5 - sedativi (barbiturici, benzodiazepine,...)":"sedativi (barbiturici, benzodiazepine,...)","6 - cocaina":"cocaina","7 - anfetamine":"anfetamine","8 - cannabis":"cannabis","9 - allucinogeni":"allucinogeni","10 - inalanti":"inalanti","11 - altro":"altro","6 - cocaina":"cocaina","6 - cocaina":"cocaina","15 - alcol più altra sostanza":"alcol più altra sostanza","6 - politossicodipendenza":"politossicodipendeza"}
+   },
+   {
+      "name"     : "periodo_astensione",
+      "label"     :  "Quanto è durato l'ultimo periodo di astensione volontaria da questa sostanza, che non fosse il risultato di un trattamento? (MM) (00 se mai astenuto)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "fine_astensione",
+      "label"     :  "Quanti mesi fa è terminata questa astensione? (MM) (00 se tuttora astenuto)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "spese_alcol",
+      "label"     :  "Quanto pensa di avere speso negli ultimi 30 giorni per alcol?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "spese_altre_sost",
+      "label"     :  "Quanto pensa di avere speso negli ultimi 30 giorni per altre sostanze?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "giorni_trattamento",
+      "label"     :  "Per quanti giorni è stato in trattamento non residenziale per uso di alcol o di altre sostanze negli ultimi 30 giorni? (GG)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "probl_alcol_30g",
+      "label"     :  "Per quanti giorni negli ultimi 30 ha avuto problemi da uso di alcol? (GG)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "probl_altre_sost_30g",
+      "label"     :  "Per quanti giorni negli ultimi 30 ha avuto problemi da uso di altre sostanze? (GG)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "dist_probl_alcol_30g",
+      "label"     :  "Negli ultimi 30 giorni quanto è stato preoccupato o disturbato per questi problemi da uso di alcol?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "dist_probl_alcol_30g",
+      "label"     :  "Negli ultimi 30 giorni quanto è stato preoccupato o disturbato per questi problemi da uso di altre sostanze?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "tratt_alcol",
+      "label"     :  "In questo momento quanto è importante per lei ricevere un trattamento per i suoi problemi da uso di alcol?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "tratt_altre_sost",
+      "label"     :  "In questo momento quanto è importante per lei ricevere un trattamento per i suoi problemi da uso di altre sostanze?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "bis_tratt_alcol",
+      "label"     :  "Come valuteresi il bisogno di trattamento del soggetto per problemi da uso di alcol?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "bis_tratt_altre_sost",
+      "label"     :  "Come valuteresi il bisogno di trattamento del soggetto per problemi da uso di altre sostanze?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "alcol_inattendibilita_intervistato",
+      "label"     :  "Le precedenti informazioni sono significativamente distorte dall'inattendibilità dell'intervistato?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "alcol_incapacita_intervistato",
+      "label"     :  "Le precedenti informazioni sono significativamente distorte dall'incapacità dell'intervistato a comprendere?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "commenti_alcol",
+      "label"     :  "Commenti",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "trattamento_imposto",
+      "label"     :  "Il presente trattamento è stato proposto o imposto dall'Autorità amministrativa o giudiziaria?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "liberta_condizionata",
+      "label"     :  "E' attualmente in libertà condizionata o in regime di sospensione o trattamento sostitutivo di una pena?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "reati_stupefacenti",
+      "label"     :  "Quante volte nella sua vita è stato imputato per reati connessi alle norme sugli stupefacenti? (es.: possesso, spaccio,..)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "reati_patrimonio",
+      "label"     :  "Quante volte nella sua vita è stato imputato per reati contro il patrimonio e assimilati? (es.: furto, ricettazione, truffa, falsificazione, estorsione,..)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "reati_violenti",
+      "label"     :  "Quante volte nella sua vita è stato imputato per reati violenti? (es.: rapina, aggressione, omicidio, violenza carnale, ...)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "altri_reati",
+      "label"     :  "Quante volte nella sua vita è stato imputato per altri reati?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "descr_altri_reati",
+      "label"     :  "descrivere altri reati",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "condanne",
+      "label"     :  "Quante di queste imputazioni sono esitate in condanne?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "contr_non_autom",
+      "label"     :  "Quante volte nella sua vita è stato perseguito per contravvenzioni non automobilistiche?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "descr_contr_non_autom",
+      "label"     :  "descrivere contravvenzioni non automobilistiche",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "guida_ebbrezza",
+      "label"     :  "Quante volte nella sua vita è stato perseguito per guida in stato di ebbrezza o intossicazione?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "violazioni_codice_stradale",
+      "label"     :  "Quante volte nella sua vita è stato perseguito per guida senza patente, guida pericolosa, eccesso di velocità o altre gravi violazioni del codice della strada?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "mesi_carcere",
+      "label"     :  "Quanti mesi ha trascorso in carcere nella sua vita? (MM)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "ultima_carcer",
+      "label"     :  "Quanto è durata l'ultima carcerazione?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "motivo_ultima_carc",
+      "label"     :  "Per quale illecito (se più di uno indicare il più grave)?",
+      "type"       : "SelectField",
+      "choices"	: {"1 - reati connessi alle norme sugli stupefacenti":"reati connessi alle norme sugli stupefacenti","2 -reati contro il patrimonio":"reati contro il patrimonio","3 - reati violenti":"reati violenti","4 - altri reati":"altri reati","5 - contravvenzioni non automobilistiche":"contravvenzioni non automobilistiche","6 - guida in stato di ebbrezza o intossicazione":"guida in stato di ebbrezza o intossicazione","7 - guida senza patente, guida pericolosa, eccesso di velocità o altre gravi violazioni del codice della strada":"guida senza patente, guida pericolosa, eccesso di velocità o altre gravi violazioni del codice della strada"}
+   },
+   {
+      "name"     : "stato_fermo_30g",
+      "label"     :  "Per quanti giorni negli ultimi 30 è stato trattenuto in stato di fermo ovvero detenuto? (GG)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "attivita_illegali_30g",
+      "label"     :  "Per quanti giorni negli ultimi 30 è stato coinvolto in attività illegali per tratne profitto? (GG)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "gravita_problemi_legali",
+      "label"     :  "Quanto ritiene gravi i suoi attuali problemi legali (penali)?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "tratt_legale",
+      "label"     :  "In questo momento quanto è importante per lei ricevere un trattamento o una consulenza per questi problemi legali (penali)?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "bis_consulenza_legale",
+      "label"     :  "Come valuteresti il bisogno di consulenza legale del soggetto?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "legale_inattendibilita_intervistato",
+      "label"     :  "Le precedenti informazioni sono significativamente distorte dall'inattendibilità dell'intervistato?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "legale_incapacita_intervistato",
+      "label"     :  "Le precedenti informazioni sono significativamente distorte dall'incapacità dell'intervistato a comprendere?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "commenti_legale",
+      "label"     :  "Commenti",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "nonna_materna_alcol",
+      "label"     :  "Nonna materna alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "nonna_materna_altre_sostanze",
+      "label"     :  "Nonna materna altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "nonna_materna_mentale",
+      "label"     :  "Nonna materna mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "nonno_materna_alcol",
+      "label"     :  "Nonno materna alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "nonno_materna_altre_sostanze",
+      "label"     :  "Nonno materna altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "nonno_materna_mentale",
+      "label"     :  "Nonno materna mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "madre_materna_alcol",
+      "label"     :  "Madre materna alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "madre_materna_altre_sostanze",
+      "label"     :  "Madre materna altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "madre_materna_mentale",
+      "label"     :  "Madre materna mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "zie_materne_alcol",
+      "label"     :  "Zie materne alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "zie_materne_altre_sostanze",
+      "label"     :  "Zie materne altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "zie_materne_mentale",
+      "label"     :  "Zie materne mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "zii_materni_alcol",
+      "label"     :  "Zii materne alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "zii_materni_altre_sostanze",
+      "label"     :  "Zii materni altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "zii_materni_mentale",
+      "label"     :  "Zii materni mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "altri_materni_alcol",
+      "label"     :  "Altri familiari significativi materni alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "altri_materni_altre_sostanze",
+      "label"     :  "Altri familiari significativi materni altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "altri_materni_mentale",
+      "label"     :  "Altri familiari significativi materni mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "nonna_paterna_alcol",
+      "label"     :  "Nonna paterna alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "nonna_paterna_altre_sostanze",
+      "label"     :  "Nonna paterna altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "nonna_paterna_mentale",
+      "label"     :  "Nonna paterna mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "nonno_paterna_alcol",
+      "label"     :  "Nonno paterna alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "nonno_paterna_altre_sostanze",
+      "label"     :  "Nonno paterna altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "nonno_paterna_mentale",
+      "label"     :  "Nonno paterna mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "madre_paterna_alcol",
+      "label"     :  "Madre paterna alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "madre_paterna_altre_sostanze",
+      "label"     :  "Madre paterna altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "madre_paterna_mentale",
+      "label"     :  "Madre paterna mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "zie_paterne_alcol",
+      "label"     :  "Zie paterne alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "zie_paterne_altre_sostanze",
+      "label"     :  "Zie paterne altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "zie_paterne_mentale",
+      "label"     :  "Zie paterne mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "zii_paterni_alcol",
+      "label"     :  "Zii paterne alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "zii_paterni_altre_sostanze",
+      "label"     :  "Zii paterni altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "zii_paterni_mentale",
+      "label"     :  "Zii paterni mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "altri_paterni_alcol",
+      "label"     :  "Altri familiari significativi paterni alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "altri_paterni_altre_sostanze",
+      "label"     :  "Altri familiari significativi paterni altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "altri_paterni_mentale",
+      "label"     :  "Altri familiari significativi paterni mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "fratello1_alcol",
+      "label"     :  "Fratello 1 alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "fratello1_altre_sostanze",
+      "label"     :  "Fratello 1 altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "fratello1_mentale",
+      "label"     :  "Fratello 1 mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "fratello2_alcol",
+      "label"     :  "Fratello 2 alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "fratello2_altre_sostanze",
+      "label"     :  "Fratello 2 altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "fratello2_mentale",
+      "label"     :  "Fratello 2 mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "sorella1_alcol",
+      "label"     :  "Sorella 1 alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "sorella1_altre_sostanze",
+      "label"     :  "Sorella 1 altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "sorella1_mentale",
+      "label"     :  "Sorella 1 mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "sorella2_alcol",
+      "label"     :  "Sorella 2 alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "sorella2_altre_sostanze",
+      "label"     :  "Sorella 2 altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "sorella2_mentale",
+      "label"     :  "Sorella 2 mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "altr_german_alcol",
+      "label"     :  "Altro/a fratello/sorella alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "altr_german_altre_sostanze",
+      "label"     :  "Altro/a fratello/sorella altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "altr_german_mentale",
+      "label"     :  "Altro/a fratello/sorella mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "altri_significativi_alcol",
+      "label"     :  "Altri germani significativi alcol",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "altri_significativi_altre_sostanze",
+      "label"     :  "Altri germani significativi altre sostanze",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "altri_significativi_mentale",
+      "label"     :  "Altri germani significativi mentale",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "stato_civile",
+      "label"     :  "Stato civile attuale:",
+      "type"       : "SelectField",
+      "choices"	: {"1 - coniugato":"coniugato","2 - ri-coniugato":"ri-coniugato","3 - vedovo":"vedovo","4 - separato":"separato","5 - divorziato":"divorziato","6 - celibe/nubile":"celibe/nubile"}
+   },
+   {
+      "name"     : "anni_stato_civile",
+      "label"     :  "Da quanto tempo si trova in questa condizione di stato civile? (AA MM) (se mai sposato calcolare dall'età di 18 anni)",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "soddisf_stato_civile",
+      "label"     :  "E' soddisfatto di questa condizione?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Indifferente":"Indifferente","2 - Si":"Si"}
+   },
+   {
+      "name"     : "situa_abit",
+      "label"     :  "Situazione abitativa/di convivenza negli ultimi 3 anni:",
+      "type"       : "SelectField",
+      "choices"	: {"1 - con partner e figli":"con partner e figli","2 - con partner soltanto":"con partner soltanto","3 - con figli soltanto":"con figli soltanto","4 - con genitori":"con genitori","5 - con altri familiari":"con altri familiari","6 - con amici":"con amici","7 - da solo":"da solo","8 - in ambiente confinato":"in ambiente confinato","9 - senza fissa dimora o altro":"senza fissa dimora o altro"}
+   },
+   {
+      "name"     : "descrizione_situa_abit",
+      "label"     :  "descrizione",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "anni_situa_abit",
+      "label"     :  "Da quanto tempo vive in questa situazione? (AA MM) (se è ancora con famiglia d'origine calcolare dall'età di 18 anni)",
+      "type"       : "StringField"
+   },
+   {
+      "name"     : "soddisf_situa_abit",
+      "label"     :  "E' soddisfatto di questa sistemazione?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Indifferente":"Indifferente","2 - Si":"Si"}
+   },
+   {
+      "name"     : "conqui_alcol",
+      "label"     :  "Vive con qualcuno che ha problemi di alcol in atto?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "conqui_sost_psicoattive",
+      "label"     :  "Vive con qualcuno che fa uso di sostanze psicoattive?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "tempo_libero",
+      "label"     :  "Con chi trascorre la maggior parte del suo tempo libero? ",
+      "type"       : "SelectField",
+      "choices"	: {"1 - familiari senza problemi di alcol od uso di sostanze in atto":"familiari senza problemi di alcol od uso di sostanze in atto","2 - familiari con problemi di alcol od uso di sostanze in atto":"familiari con problemi di alcol od uso di sostanze in atto","3 - amici senza problemi di alcol od uso di sostanze in atto":"amici senza problemi di alcol od uso di sostanze in atto","4 - amici con problemi di alcol od uso di sostanze in atto":"amici con problemi di alcol od uso di sostanze in atto","5 - da solo":"da solo"}
+   },
+   {
+      "name"     : "soddisf_tempo_libero",
+      "label"     :  "E' soddisfatto di trascorrere così il suo tempo libero?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Indifferente":"Indifferente","2 - Si":"Si"}
+   },
+   {
+      "name"     : "amici_stretti",
+      "label"     :  "Quanti amici stretti ha? (N)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "relaz_madre",
+      "label"     :  "Madre",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "relaz_padre",
+      "label"     :  "Padre",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "relaz_frat_sor",
+      "label"     :  "Fratelli/Sorelle",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "relaz_coniuge_partner",
+      "label"     :  "Coniuge/Partner",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "relaz_figli",
+      "label"     :  "Figli",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "relaz_amici",
+      "label"     :  "Amici",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_madre_30g",
+      "label"     :  "Madre negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_madre_vita",
+      "label"     :  "Madre nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_padre_30g",
+      "label"     :  "Padre negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_padre_vita",
+      "label"     :  "Padre nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_frat_sor_30g",
+      "label"     :  "Fratelli/Sorelle negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_frat_sor_vita",
+      "label"     :  "Fratelli/Sorelle nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_coniuge_partner_30g",
+      "label"     :  "Coniuge/Partner negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_coniuge_partner_vita",
+      "label"     :  "Coniuge/Partner nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_figli_30g",
+      "label"     :  "Figli negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_figli_vita",
+      "label"     :  "Figli nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_altri_30g",
+      "label"     :  "Altri familiari significativi negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_altri_vita",
+      "label"     :  "Altri familiari significativi nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_amici_30g",
+      "label"     :  "Amici stretti negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_amici_vita",
+      "label"     :  "Amici stretti nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_vicini_30g",
+      "label"     :  "Vicini di casa negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_vicini_vita",
+      "label"     :  "Vicini di casa nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_colleghi_30g",
+      "label"     :  "Collaboratori/Colleghi di lavoro negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "probl_relaz_colleghi_vita",
+      "label"     :  "Collaboratori/Colleghi di lavoro nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "violenza_emotiva_30g",
+      "label"     :  "Qualcuno fra queste persone le ha mai usato violenza emotiva negli ultimi 30 giorni (facendo soffrire con parole dure o umilianti) ?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "violenza_emotiva_vita",
+      "label"     :  "Qualcuno fra queste persone le ha mai usato violenza emotiva nella vita (facendo soffrire con parole dure o umilianti) ?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "violenza_fisica_30g",
+      "label"     :  "Qualcuno fra queste persone le ha mai usato violenza fisica negli ultimi 30 giorni (provocando dolore fisico o producendo lesioni) ?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "violenza_fisica_vita",
+      "label"     :  "Qualcuno fra queste persone le ha mai usato violenza fisica nella vita (provocando dolore fisico o producendo lesioni) ?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "violenza_sessuale_30g",
+      "label"     :  "Qualcuno fra queste persone le ha mai usato violenza sessuale negli ultimi 30 giorni (molestando con approci forzati o compiendo atti sessuali) ?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "violenza_sessuale_vita",
+      "label"     :  "Qualcuno fra queste persone le ha mai usato violenza sessuale nella vita (molestando con approci forzati o compiendo atti sessuali) ?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "conflitto_familiare",
+      "label"     :  "Per quanti giorni negli ultimi 30 è stato in forte conflitto con i suoi familiari? (GG)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "conflitto_altri",
+      "label"     :  "Per quanti giorni negli ultimi 30 è stato in forte conflitto con i altri (esterni alla famiglia)? (GG)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "preoccup_famil",
+      "label"     :  "Quanto è stato preoccupato o disturbato negli ultimi 30 giorni per questi problemi familiari?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "preoccup_sociali",
+      "label"     :  "Quanto è stato preoccupato o disturbato negli ultimi 30 giorni per questi problemi sociali?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "tratt_probl_famil",
+      "label"     :  "In questo momento quanto è importante per lei ricevere un trattamento per questi problemi familiari?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "tratt_probl_soc",
+      "label"     :  "In questo momento quanto è importante per lei ricevere un trattamento per questi problemi sociali?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "bis_consulenza_famil",
+      "label"     :  "Come valuteresti il bisogno di consulenza per i problemi familiari e/o sociali del soggetto?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "famil_inattendibilita_intervistato",
+      "label"     :  "Le precedenti informazioni sono significativamente distorte dall'inattendibilità dell'intervistato?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "famil_incapacita_intervistato",
+      "label"     :  "Le precedenti informazioni sono significativamente distorte dall'incapacità dell'intervistato a comprendere?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "commenti_famil",
+      "label"     :  "Commenti",
+      "type"       : "TextAreaField"
+   },
+   {
+      "name"     : "tratt_psichico_ricovero",
+      "label"     :  "Quante volte ha ricevuto un trattameno per problemi psicologici o emozionali in regime di ricovero o residenziale?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "tratt_psichico_ambulatoriale",
+      "label"     :  "Quante volte ha ricevuto un trattameno per problemi psicologici o emozionali ambulatoriale?",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "pensione_inv_psichica",
+      "label"     :  "Riceve una pensione per invalidità psichica?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "depressione_30g",
+      "label"     :  "Depressione grave negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "depressione_vita",
+      "label"     :  "Depressione grave nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "ansia_30g",
+      "label"     :  "Intensa ansia o tensione nervosa negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "ansia_vita",
+      "label"     :  "Intensa ansia o tensione nervosa nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "difficolta_30g",
+      "label"     :  "Difficoltà di comprensione, concentrazione, memoria negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "difficolta_vita",
+      "label"     :  "Difficoltà di comprensione, concentrazione, memoria nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "allucinazioni_30g",
+      "label"     :  "Allucinazioni negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "allucinazioni_vita",
+      "label"     :  "Allucinazioni nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "controllo_30g",
+      "label"     :  "Difficoltà a controllare il comportamento violento negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "controllo_vita",
+      "label"     :  "Difficoltà a controllare il comportamento violento nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "prescrizioni_30g",
+      "label"     :  "Neccessità di prescrizioni farmacologiche per problemi psicologici o emozionali negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "prescrizioni_vita",
+      "label"     :  "Neccessità di prescrizioni farmacologiche per problemi psicologici o emozionali nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "pensieri_suicidio_30g",
+      "label"     :  "Pensieri suicidari seri negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "pensieri_suicidio_vita",
+      "label"     :  "Pensieri suicidari seri nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "tentativi_suicidio_30g",
+      "label"     :  "Compiuto tentativi di suicidio negli ultimi 30 giorni",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "tentativi_suicidio_vita",
+      "label"     :  "Compiuto tentativi di suicidio nella vita",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "tentativi_suicidio",
+      "label"     :  "Quante volte ha tentato il suicidio? (NN)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "probl_psich_30g",
+      "label"     :  "Per quanti giorni ha avuto questi problemi psicologici o emozionali negli ultimi 30 giorni? (GG)",
+      "type"       : "IntegerField"
+   },
+   {
+      "name"     : "preoccup_psichici",
+      "label"     :  "Quanto è stato preoccupato o disturbato per questi problemi psicologici o emozionali negli ultimi 30 giorni?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "tratt_probl_psichici",
+      "label"     :  "In questo momento quanto è importante per lei ricevere un trattamento per questi problemi psicologici o emozionali?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "paz_depresso",
+      "label"     :  "Al momento dell'intervista il paziente appare palesemente depresso, introverso, poco socializzante?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "paz_ostile",
+      "label"     :  "Al momento dell'intervista il paziente appare palesemente ostile?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "paz_ansioso",
+      "label"     :  "Al momento dell'intervista il paziente appare palesemente ansioso o nervoso?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "paz_prob_realta",
+      "label"     :  "Al momento dell'intervista il paziente ha problemi nell'esame di realtà, disturbi del pensiero, ideazione paranoide?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "paz_diff_comprensione",
+      "label"     :  "Al momento dell'intervista il paziente ha difficoltà di comprensione, concentrazione, memoria?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "paz_pens_suicidio",
+      "label"     :  "Al momento dell'intervista il paziente ha pensieri suicidari?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "bis_consulenza_psichica",
+      "label"     :  "Come valuteresti il bisogno di trattamento psicologico/psichiatrico del soggetto?",
+      "type"       : "SelectField",
+      "choices"	: {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9"}
+   },
+   {
+      "name"     : "psichica_inattendibilita_intervistato",
+      "label"     :  "Le precedenti informazioni sono significativamente distorte dall'inattendibilità dell'intervistato?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "psichica_incapacita_intervistato",
+      "label"     :  "Le precedenti informazioni sono significativamente distorte dall'incapacità dell'intervistato a comprendere?",
+      "type"       : "SelectField",
+      "choices"	: {"0 - No":"No","1 - Si":"Si"}
+   },
+   {
+      "name"     : "commenti_psichici",
+      "label"     :  "Commenti",
+      "type"       : "TextAreaField"
+   }
+]
