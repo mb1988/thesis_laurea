@@ -1,3 +1,9 @@
+try:
+    # Same local-development shims as run.py (see dev/bootstrap.py).
+    from dev import bootstrap  # noqa: F401
+except ImportError:
+    pass
+
 from flask.ext.script import Manager
 
 from app import dbsqla, app
@@ -7,12 +13,12 @@ manager = Manager(app)
 
 @manager.command
 def setup():
-	dbsqla.create_all()
-	admin = User( username = 'admin', email = 'admin@gmail.com', password = 'password', admin = True )
-	guest = User( username =' guest', email = 'guest@gmail.com', password = 'password', admin = False )
-	dbsqla.session.add(admin)
-	dbsqla.session.add(guest)
-	dbsqla.session.commit()
+        dbsqla.create_all()
+        admin = User( username = 'admin', email = 'admin@gmail.com', password = 'password', admin = True )
+        guest = User( username =' guest', email = 'guest@gmail.com', password = 'password', admin = False )
+        dbsqla.session.add(admin)
+        dbsqla.session.add(guest)
+        dbsqla.session.commit()
 
 if __name__ == "__main__":
     manager.run()

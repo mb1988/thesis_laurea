@@ -1,10 +1,25 @@
-Flask
-Flask-Admin==1.0.4
-Flask-Login
-Flask-Script
-Flask-SQLAlchemy
-psycopg2
-mongoengine
-flask-mongoengine
-Flask-WeasyPrint
-
+# 2026 development stack for thesis_laurea (tested on Python 3.14, Windows).
+#
+# These replace the 2014 pins kept in requirements-2014.txt: those targeted
+# Python 2.7 and Flask 0.10 and no longer install.  Notes:
+#   * psycopg2 is gone because the dev setup uses SQLite; install
+#     psycopg2-binary and set DATABASE_URL for a PostgreSQL server.
+#   * flask-mongoengine is gone: it imports flask.json.JSONEncoder, removed in
+#     Flask 2.3.  dev/compat/shim_mongoengine.py provides the small slice the
+#     app uses, on top of plain mongoengine.
+#   * mongomock gives the dev server a working Mongo without a server install;
+#     point MONGO_URI at mongodb://localhost:27017 for a real one.
+#   * xhtml2pdf renders the questionnaire PDFs (WeasyPrint needs GTK/Pango).
+Flask==3.1.3
+Werkzeug==3.1.8
+Jinja2==3.1.6
+Flask-SQLAlchemy==3.1.1
+SQLAlchemy==2.1.1
+Flask-Login==0.6.3
+Flask-WTF==1.3.0
+WTForms==3.2.2
+Flask-Admin==2.2.1
+mongoengine==0.29.3
+pymongo==4.18.2
+mongomock==4.3.0
+xhtml2pdf==0.2.20

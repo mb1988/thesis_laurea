@@ -11,5 +11,5 @@ class Paziente(db.Document):
     centro = db.ReferenceField('Centro', dbref=True)# , dbref=False?
     
     def __unicode__(self):
-		return '%s - %s' % (self.cognome, self.nome)
+                return '%s - %s' % (self.cognome, self.nome)
 

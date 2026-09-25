@@ -20,31 +20,31 @@ class MyModelView(mongoengine.ModelView):
 class MyModelAdmin(sqlamodel.ModelView):
     def is_accessible(self):
         if login.current_user.is_authenticated() and login.current_user.admin:
-        	return True
-		return False		
-		
+            return True
+        return False
+
 # Create customized index view class
 class MyAdminIndexView(admin.AdminIndexView):
     def is_accessible(self):
         return login.current_user.is_authenticated()
 
 class MyFileAdmin(FileAdmin):
-	#modifico il file list in modo tale che se clicco sul file mi porta al download del file e non all'edit
-	list_template= 'admin/file/list2.html'
-	
-	@expose('/download/<path:path>')
-	def download_file(self,path=None):
-		return send_from_directory(app.config['DOWNLOAD_FOLDER'],
+        #modifico il file list in modo tale che se clicco sul file mi porta al download del file e non all'edit
+        list_template= 'admin/file/list2.html'
+        
+        @expose('/download/<path:path>')
+        def download_file(self,path=None):
+                return send_from_directory(app.config['DOWNLOAD_FOLDER'],
                                path)
-	
-	def is_accessible(self):
-		return login.current_user.is_authenticated()
+        
+        def is_accessible(self):
+                return login.current_user.is_authenticated()
    
 
 class Logout(BaseView):
-	@expose('/')
-	def log_out(self):
-		return redirect(url_for('users.logout_view'))
-	
-	def is_accessible(self):
-		return login.current_user.is_authenticated()
+        @expose('/')
+        def log_out(self):
+                return redirect(url_for('users.logout_view'))
+        
+        def is_accessible(self):
+                return login.current_user.is_authenticated()

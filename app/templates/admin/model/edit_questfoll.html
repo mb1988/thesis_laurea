@@ -2,8 +2,8 @@
 {% import 'admin/lib_questfoll.html' as lib with context %}
 
 {% block head %}
-    <link href="{{ url_for('admin.static', filename='select2/select2.css') }}" rel="stylesheet">
-    <link href="{{ url_for('admin.static', filename='css/datepicker.css') }}" rel="stylesheet">
+    {# flask-admin 2.x ships select2 under vendor/ and no longer bundles a datepicker. #}
+    <link href="{{ url_for('admin.static', filename='vendor/select2/select2.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
@@ -14,6 +14,5 @@
 {% endblock %}
 
 {% block tail %}
-    <script src="{{ url_for('admin.static', filename='js/bootstrap-datepicker.js') }}"></script>
-    <script src="{{ url_for('admin.static', filename='js/form.js') }}"></script>
+    <script src="{{ url_for('admin.static', filename='admin/js/form.js') }}"></script>
 {% endblock %}

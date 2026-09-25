@@ -3,8 +3,8 @@
 {% import 'admin/actions.html' as actionlib with context %}
 
 {% block head %}
-    <link href="{{ url_for('admin.static', filename='select2/select2.css') }}" rel="stylesheet">
-    <link href="{{ url_for('admin.static', filename='css/datepicker.css') }}" rel="stylesheet">
+    {# flask-admin 2.x ships select2 under vendor/ and no longer bundles a datepicker. #}
+    <link href="{{ url_for('admin.static', filename='vendor/select2/select2.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
@@ -178,10 +178,8 @@
 
 
 {% block tail %}
-    <script src="{{ url_for('admin.static', filename='js/bootstrap-datepicker.js') }}"></script>
-    <script src="{{ url_for('admin.static', filename='js/bootstrap-tooltip.js') }}"></script>
-    <script src="{{ url_for('admin.static', filename='js/form.js') }}"></script>
-    <script src="{{ url_for('admin.static', filename='js/filters.js') }}"></script>
+    <script src="{{ url_for('admin.static', filename='admin/js/form.js') }}"></script>
+    <script src="{{ url_for('admin.static', filename='admin/js/filters.js') }}"></script>
 
     {{ actionlib.script(_gettext('Please select at least one model.'),
                       actions,
@@ -192,14 +190,8 @@
     <script language="javascript">
         (function($) {
             $('[data-role=tooltip]').tooltip();
-            {% if filter_groups is not none and filter_data is not none %}
-                var filter = new AdminFilters(
-                    '#filter_form', '.field-filters',
-                    {{ admin_view._filter_dict|tojson|safe }},
-                    {{ filter_data|tojson|safe }},
-                    {{ filter_types|tojson|safe }}
-                );
-            {% endif %}
+            /* flask-admin 2.x removed _filter_dict/filter_data/filter_types and
+               ships its own filter widget, so the 2014 AdminFilters init is gone. */
         })(jQuery);
     </script>
 {% endblock %}

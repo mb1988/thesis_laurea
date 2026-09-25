@@ -10,19 +10,19 @@ from app import app
 
 class PazienteAdmin(MyModelView):
 
-	list_template = 'admin/model/list_pazienti.html'
+        list_template = 'admin/model/list_pazienti.html'
 
-	column_list = ('cognome','nome','nascita','medico','centro')
-	
-	column_searchable_list = ('cognome','nome')
-	
-	column_filters = ('cognome',
+        column_list = ('cognome','nome','nascita','medico','centro')
+        
+        column_searchable_list = ('cognome','nome')
+        
+        column_filters = ('cognome',
                       'nome',
                       'nascita')
                       
-	@app.route('/pazienti.pdf')
-	def pazienti_pdf():
-		pazienti = Paziente.objects.all()
-		html = render_template('pazienti_list.html',pazienti=pazienti)
-		return render_pdf(HTML(string=html))
+        @app.route('/pazienti.pdf')
+        def pazienti_pdf():
+                pazienti = Paziente.objects.all()
+                html = render_template('pazienti_list.html',pazienti=pazienti)
+                return render_pdf(HTML(string=html))
                         

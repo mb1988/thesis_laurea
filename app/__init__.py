@@ -13,8 +13,8 @@ dbsqla = SQLAlchemy(app)
 
 @app.errorhandler(404)
 def not_found(error):
-	return render_template('404.html'), 404
-		
+        return render_template('404.html'), 404
+                
 
 from app.user.views import users
 app.register_blueprint(users)

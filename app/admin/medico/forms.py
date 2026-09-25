@@ -11,18 +11,18 @@ from app import app
 
 class MedicoAdmin(MyModelView):
 
-	list_template = 'admin/model/list_medici.html'
+        list_template = 'admin/model/list_medici.html'
 
-	column_list = ('cognome','nome','centro')
+        column_list = ('cognome','nome','centro')
 
-	column_searchable_list = ('cognome','nome')
+        column_searchable_list = ('cognome','nome')
 
-	column_filters = ('cognome',
+        column_filters = ('cognome',
                       'nome')
                      
-	@app.route('/medici.pdf')
-	def medici_pdf():
-		medici = Medico.objects.all()
-		html = render_template('medici_list.html',medici=medici)
-		return render_pdf(HTML(string=html))
+        @app.route('/medici.pdf')
+        def medici_pdf():
+                medici = Medico.objects.all()
+                html = render_template('medici_list.html',medici=medici)
+                return render_pdf(HTML(string=html))
    
