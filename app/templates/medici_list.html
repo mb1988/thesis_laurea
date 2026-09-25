@@ -1,14 +1,36 @@
 <!doctype html>
+<html lang="it">
+<head><meta charset="utf-8">{% include 'pdf_style.html' %}</head>
+<body class="asl-pdf">
+<div class="pdf-page">
+  <div class="pdf-header">
+    <div class="pdf-org">Azienda Sanitaria Locale - Dipartimento Dipendenze</div>
+    <h1>Elenco dei medici</h1>
+    <div class="pdf-meta">Totale medici registrati: {{ medici|length }}</div>
+  </div>
 
-<center><h4>LISTA MEDICI</h4></center>
+  {% if medici %}
+  <table class="pdf-table">
+    <thead>
+      <tr><th style="width: 22%">Cognome</th><th style="width: 20%">Nome</th><th>Centro di riferimento</th></tr>
+    </thead>
+    <tbody>
+      {% for med in medici %}
+      <tr{% if loop.index is even %} class="alt"{% endif %}>
+        <td>{{ med.cognome }}</td>
+        <td>{{ med.nome }}</td>
+        <td>{% if med.centro %}{{ med.centro }}{% else %}-{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>Nessun medico registrato.</p>
+  {% endif %}
 
-{% for med in medici %}
-	<p>NOME: {{med.nome}}</p>
-	<p>COGNOME: {{med.cognome}}</p>
-	<p>CENTRO: {%if med.centro != None %}{{med.centro}}{%endif%}</p>
-	<br>
-	
-	
-{% endfor %}
-
-
+  <div class="pdf-footer">
+    Documento generato dal Sistema di gestione ambulatoriale - ASL Servizio Dipendenze
+  </div>
+</div>
+</body>
+</html>

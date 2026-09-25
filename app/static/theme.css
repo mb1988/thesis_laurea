@@ -1,0 +1,304 @@
+/* ==========================================================================
+   ASL - Sistema di gestione Servizio Dipendenze
+   Tema 2026: usato sia dall'area di amministrazione sia dalla pagina di login.
+   ========================================================================== */
+
+:root {
+  --asl-primary: #0b5f8a;
+  --asl-primary-dark: #073f5c;
+  --asl-primary-light: #e8f2f8;
+  --asl-accent: #1f9d8f;
+  --asl-warn: #d97706;
+  --asl-danger: #c0392b;
+  --asl-bg: #f2f5f9;
+  --asl-surface: #ffffff;
+  --asl-border: #dde5ee;
+  --asl-text: #1f2937;
+  --asl-muted: #6b7a90;
+  --asl-shadow: 0 1px 2px rgba(16, 42, 67, .06), 0 8px 24px rgba(16, 42, 67, .06);
+  --asl-radius: 10px;
+}
+
+body {
+  background: var(--asl-bg);
+  color: var(--asl-text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+a { color: var(--asl-primary); }
+a:hover, a:focus { color: var(--asl-primary-dark); }
+
+/* ---------------------------------------------------------------- navbar -- */
+
+.asl-navbar {
+  background: linear-gradient(100deg, var(--asl-primary-dark) 0%, var(--asl-primary) 55%, #14799f 100%);
+  box-shadow: 0 2px 10px rgba(7, 63, 92, .25);
+  padding: .55rem 1rem;
+}
+
+.asl-brand {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.asl-brand:hover { color: #fff !important; }
+
+.asl-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .16);
+  border: 1px solid rgba(255, 255, 255, .28);
+  font-size: 1.25rem;
+}
+
+.asl-brand-text { line-height: 1.15; }
+.asl-brand-title { font-weight: 700; font-size: 1.06rem; letter-spacing: .02em; }
+.asl-brand-sub { font-size: .74rem; text-transform: uppercase; letter-spacing: .09em; opacity: .78; }
+
+.asl-navbar .nav-link { color: rgba(255, 255, 255, .86) !important; font-weight: 500; }
+.asl-navbar .nav-link:hover,
+.asl-navbar .nav-link:focus { color: #fff !important; }
+.asl-navbar .dropdown-menu { border: 0; box-shadow: var(--asl-shadow); border-radius: var(--asl-radius); }
+.asl-navbar .dropdown-item.active,
+.asl-navbar .dropdown-item:active { background-color: var(--asl-primary); }
+
+.asl-user-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .3rem .7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+  font-size: .85rem;
+}
+
+.asl-user-chip .fa { opacity: .85; }
+
+/* ----------------------------------------------------------- page layout -- */
+
+.asl-main { max-width: 1320px; margin: 0 auto; padding: 1.4rem 1.1rem 3rem; }
+
+.asl-page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: .85rem;
+  margin-bottom: 1.1rem;
+}
+
+.asl-page-header .asl-page-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--asl-primary-dark);
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+}
+
+.asl-page-header .asl-page-sub { margin: .2rem 0 0; color: var(--asl-muted); font-size: .92rem; }
+.asl-breadcrumb { margin: 0 0 .35rem; font-size: .82rem; color: var(--asl-muted); }
+.asl-breadcrumb a { color: var(--asl-muted); text-decoration: underline; }
+
+.asl-card {
+  background: var(--asl-surface);
+  border: 1px solid var(--asl-border);
+  border-radius: var(--asl-radius);
+  box-shadow: var(--asl-shadow);
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 1.15rem;
+}
+
+.asl-card > h5, .asl-card > h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--asl-primary-dark);
+  margin-bottom: .2rem;
+}
+
+.asl-card .asl-card-sub { color: var(--asl-muted); font-size: .85rem; margin-bottom: .9rem; }
+
+/* ------------------------------------------------------------- dashboard -- */
+
+.asl-kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; }
+
+.asl-kpi {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  padding: 1rem 1.1rem;
+  background: var(--asl-surface);
+  border: 1px solid var(--asl-border);
+  border-left: 4px solid var(--asl-primary);
+  border-radius: var(--asl-radius);
+  box-shadow: var(--asl-shadow);
+  color: inherit;
+  text-decoration: none;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.asl-kpi:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(16, 42, 67, .13); color: inherit; text-decoration: none; }
+.asl-kpi-icon {
+  width: 46px; height: 46px; border-radius: 12px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 1.25rem; background: var(--asl-primary-light); color: var(--asl-primary);
+}
+.asl-kpi-value { font-size: 1.7rem; font-weight: 700; line-height: 1; color: var(--asl-primary-dark); }
+.asl-kpi-label { font-size: .82rem; text-transform: uppercase; letter-spacing: .05em; color: var(--asl-muted); }
+
+.asl-kpi.is-accent { border-left-color: var(--asl-accent); }
+.asl-kpi.is-accent .asl-kpi-icon { background: #e6f6f4; color: var(--asl-accent); }
+.asl-kpi.is-warn { border-left-color: var(--asl-warn); }
+.asl-kpi.is-warn .asl-kpi-icon { background: #fdf1e3; color: var(--asl-warn); }
+
+.asl-bars { display: flex; flex-direction: column; gap: .6rem; margin-top: .35rem; }
+.asl-bar-row { display: grid; grid-template-columns: minmax(120px, 34%) 1fr auto; align-items: center; gap: .75rem; font-size: .9rem; }
+.asl-bar-row .asl-bar-label { color: var(--asl-text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.asl-bar-track { background: var(--asl-primary-light); border-radius: 999px; height: 12px; overflow: hidden; }
+.asl-bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--asl-primary) 0%, var(--asl-accent) 100%); }
+.asl-bar-value { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--asl-primary-dark); }
+
+.asl-quick-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .6rem; }
+.asl-quick-actions a {
+  display: flex; align-items: center; gap: .6rem;
+  padding: .7rem .85rem; border: 1px dashed var(--asl-border); border-radius: var(--asl-radius);
+  background: #fbfdff; color: var(--asl-primary-dark); font-weight: 600; font-size: .9rem; text-decoration: none;
+}
+.asl-quick-actions a:hover { border-color: var(--asl-primary); background: var(--asl-primary-light); text-decoration: none; }
+.asl-quick-actions .fa { color: var(--asl-primary); }
+
+.asl-stat-line { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .5rem 0; border-bottom: 1px dashed var(--asl-border); }
+.asl-stat-line:last-child { border-bottom: 0; }
+.asl-stat-line .label { color: var(--asl-muted); font-size: .9rem; }
+.asl-stat-line .value { font-weight: 700; color: var(--asl-primary-dark); font-variant-numeric: tabular-nums; }
+
+.progress.asl-progress { height: 10px; border-radius: 999px; background: var(--asl-primary-light); }
+.progress.asl-progress .progress-bar { background: linear-gradient(90deg, var(--asl-primary), var(--asl-accent)); }
+
+/* ---------------------------------------------------------------- tables -- */
+
+.table.asl-table { background: #fff; }
+.table.asl-table thead th {
+  border-top: 0;
+  border-bottom: 2px solid var(--asl-border);
+  color: var(--asl-muted);
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  white-space: nowrap;
+}
+.table.asl-table td, .table.asl-table th { vertical-align: middle; padding: .6rem .75rem; }
+.table.asl-table tbody tr:hover { background: #f7fbfe; }
+.table.asl-table a { font-weight: 600; text-decoration: none; }
+
+.asl-pill {
+  display: inline-block; padding: .12rem .55rem; border-radius: 999px;
+  background: var(--asl-primary-light); color: var(--asl-primary-dark);
+  font-size: .78rem; font-weight: 600;
+}
+
+/* --------------------------------------------------------------- buttons -- */
+
+.btn-primary {
+  background-color: var(--asl-primary);
+  border-color: var(--asl-primary);
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:not(:disabled):not(.disabled):active {
+  background-color: var(--asl-primary-dark);
+  border-color: var(--asl-primary-dark);
+}
+.btn-outline-primary { color: var(--asl-primary); border-color: var(--asl-primary); }
+.btn-outline-primary:hover { background-color: var(--asl-primary); border-color: var(--asl-primary); }
+
+.asl-empty {
+  text-align: center; padding: 2rem 1rem; color: var(--asl-muted);
+  border: 1px dashed var(--asl-border); border-radius: var(--asl-radius); background: #fbfdff;
+}
+.asl-empty .fa { font-size: 1.8rem; display: block; margin-bottom: .5rem; color: var(--asl-primary); opacity: .6; }
+
+.asl-footer {
+  margin-top: 2rem; padding: 1.1rem; text-align: center;
+  color: var(--asl-muted); font-size: .82rem; border-top: 1px solid var(--asl-border);
+}
+
+/* ------------------------------------------------------------ login page -- */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, var(--asl-primary-dark) 0%, var(--asl-primary) 45%, var(--asl-accent) 130%);
+}
+
+.login-shell {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(320px, 420px);
+  width: 100%;
+  max-width: 940px;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(6, 38, 58, .35);
+}
+
+.login-aside {
+  background: linear-gradient(160deg, var(--asl-primary-dark), var(--asl-primary) 70%, #1590a8);
+  color: #fff;
+  padding: 2.4rem 2rem;
+}
+.login-aside h1 { font-size: 1.45rem; font-weight: 700; margin: 1rem 0 .5rem; }
+.login-aside p { color: rgba(255, 255, 255, .82); font-size: .93rem; }
+.login-aside ul { list-style: none; padding: 0; margin: 1.4rem 0 0; }
+.login-aside li { display: flex; gap: .6rem; align-items: flex-start; margin-bottom: .7rem; font-size: .9rem; color: rgba(255,255,255,.9); }
+.login-aside li .fa { margin-top: .2rem; color: #9fe4dc; }
+
+.login-card { padding: 2.4rem 2.2rem; }
+.login-card h2 { font-size: 1.2rem; font-weight: 700; color: var(--asl-primary-dark); margin-bottom: .2rem; }
+.login-card .login-sub { color: var(--asl-muted); font-size: .9rem; margin-bottom: 1.4rem; }
+.login-card label { font-size: .82rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; color: var(--asl-muted); }
+.login-card .form-control { height: 44px; border-radius: 8px; }
+.login-card .btn { height: 46px; border-radius: 8px; font-weight: 600; }
+.login-hint { margin-top: 1.2rem; font-size: .82rem; color: var(--asl-muted); background: var(--asl-primary-light); padding: .6rem .8rem; border-radius: 8px; }
+.login-alert { border-radius: 8px; }
+
+@media (max-width: 820px) {
+  .login-shell { grid-template-columns: 1fr; }
+  .login-aside { padding: 1.6rem; }
+}
+
+/* ------------------------------------------------------ printable (PDF) --- */
+
+body.asl-pdf { background: #fff; color: #111; font-family: "Helvetica", "Arial", sans-serif; }
+.pdf-page { max-width: 760px; margin: 0 auto; padding: 18px 22px; }
+.pdf-header { border-bottom: 3px solid var(--asl-primary); padding-bottom: 8px; margin-bottom: 16px; }
+.pdf-header .pdf-org { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--asl-primary); font-weight: bold; }
+.pdf-header h1 { font-size: 17px; margin: 4px 0 2px; color: #0b5f8a; }
+.pdf-header .pdf-meta { font-size: 11px; color: #555; }
+.pdf-section-title {
+  margin: 16px 0 8px; padding: 5px 8px; font-size: 13px; font-weight: bold;
+  background: #e8f2f8; border-left: 4px solid var(--asl-primary); color: #073f5c;
+}
+table.pdf-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+table.pdf-table th {
+  background: #0b5f8a; color: #fff; font-size: 11px; text-transform: uppercase;
+  text-align: left; padding: 6px 8px; border: 1px solid #0b5f8a;
+}
+table.pdf-table td { font-size: 11.5px; padding: 6px 8px; border: 1px solid #cfd9e3; }
+table.pdf-table tr:nth-child(even) td { background: #f6fafd; }
+.pdf-field { margin: 0 0 9px; }
+.pdf-field .pdf-field-label { font-size: 11.5px; font-weight: bold; color: #073f5c; }
+.pdf-field .pdf-field-value { font-size: 11.5px; color: #222; }
+.pdf-patient-box { background: #f6fafd; border: 1px solid #cfd9e3; padding: 8px 10px; margin-bottom: 12px; font-size: 11.5px; }
+.pdf-footer { margin-top: 20px; border-top: 1px solid #cfd9e3; padding-top: 6px; font-size: 9.5px; color: #6b7a90; text-align: center; }
+@media print { .pdf-page { padding: 0; } }

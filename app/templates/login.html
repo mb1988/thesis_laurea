@@ -1,30 +1,53 @@
 {% extends "layout.html" %}
+
+{% block title %}Accesso operatori · ASL Servizio Dipendenze{% endblock %}
+{% block body_class %}login-page{% endblock %}
+
 {% block body %}
-      <form class="form-signin" method=post>
-        <h2 class="form-signin-heading">Loggati</h2>
-        {{ form.hidden_tag() }}
-            {% for f in form if f.type != 'CSRFTokenField' %}
-            <div>
-            {{ f.label }}
-            {{ f }}
-            {% if f.errors %}
-            <ul>
-                {% for e in f.errors %}
-                <li>{{ e }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            </div>
-            {% endfor %}
-        <button class="btn btn-large btn-primary" type="submit">Log in</button>
-      </form>
-     
-        {% if errore %}
-  <h2>{{ errore }}!</h2>
-  {% endif %}
+<div class="login-shell">
+  <div class="login-aside">
+    <span class="asl-brand-mark"><i class="fa fa-heartbeat"></i></span>
+    <h1>ASL · Servizio Dipendenze</h1>
+    <p>Sistema di gestione degli ambulatori: anagrafiche, questionari EuropASI e refertazione.</p>
+    <ul>
+      <li><i class="fa fa-check"></i> Anagrafica centri, medici e pazienti</li>
+      <li><i class="fa fa-check"></i> Questionario di ingresso, follow-up e modulo CDP</li>
+      <li><i class="fa fa-check"></i> Stampa dei documenti in PDF ed esportazione CSV degli elenchi</li>
+    </ul>
+  </div>
 
-    </div> <!-- /container -->
+  <div class="login-card">
+    <h2>Accesso operatori</h2>
+    <p class="login-sub">Inserisci le credenziali fornite dal servizio.</p>
 
-  </body>
+    {% if errore %}
+    <div class="alert alert-danger login-alert">{{ errore }}</div>
+    {% endif %}
 
+    {% if form.errors %}
+    <div class="alert alert-danger login-alert">
+      {% for field, errors in form.errors.items() %}
+        {% for error in errors %}<div>{{ error }}</div>{% endfor %}
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <form method="post" action="{{ url_for('users.index') }}">
+      <div class="form-group">
+        <label for="login">Nome utente</label>
+        {{ form.login(class_='form-control', id='login', placeholder='es. admin', autofocus=True) }}
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        {{ form.password(class_='form-control', id='password', placeholder='password') }}
+      </div>
+      <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-sign-in"></i> Accedi</button>
+    </form>
+
+    <div class="login-hint">
+      Utenti di prova: <strong>admin</strong> / password (amministratore) ·
+      <strong>guest</strong> / password (sola consultazione)
+    </div>
+  </div>
+</div>
 {% endblock %}

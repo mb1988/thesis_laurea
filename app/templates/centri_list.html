@@ -1,14 +1,36 @@
 <!doctype html>
+<html lang="it">
+<head><meta charset="utf-8">{% include 'pdf_style.html' %}</head>
+<body class="asl-pdf">
+<div class="pdf-page">
+  <div class="pdf-header">
+    <div class="pdf-org">Azienda Sanitaria Locale - Dipartimento Dipendenze</div>
+    <h1>Elenco dei centri</h1>
+    <div class="pdf-meta">Totale centri registrati: {{ centri|length }}</div>
+  </div>
 
-<center><h4>LISTA CENTRI</h4></center>
+  {% if centri %}
+  <table class="pdf-table">
+    <thead>
+      <tr><th style="width: 24%">Città</th><th style="width: 12%">Provincia</th><th>Indirizzo</th></tr>
+    </thead>
+    <tbody>
+      {% for centro in centri %}
+      <tr{% if loop.index is even %} class="alt"{% endif %}>
+        <td>{{ centro.citta }}</td>
+        <td>{{ centro.provincia }}</td>
+        <td>{{ centro.indirizzo }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>Nessun centro registrato.</p>
+  {% endif %}
 
-{% for centro in centri %}
-	<p>CITTA': {{centro.citta}}</p>
-	<p>PROVINCIA: {{centro.provincia}}</p>
-	<p>INDIRIZZO: {{centro.indirizzo}}</p>
-	<br>
-	
-	
-{% endfor %}
-
-
+  <div class="pdf-footer">
+    Documento generato dal Sistema di gestione ambulatoriale - ASL Servizio Dipendenze
+  </div>
+</div>
+</body>
+</html>

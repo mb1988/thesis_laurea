@@ -63,6 +63,13 @@ class QuestionarioIngressoAdmin(MyModelView):
         list_template = 'admin/model/list_pdf.html'
         create_template = 'admin/model/create_questingr.html'
         edit_template = 'admin/model/edit_questingr.html'
+
+        menu_icon_type = 'fa'
+        menu_icon_value = 'fa-file-text-o'
+
+        column_labels = dict(paziente=u'Paziente')
+
+        column_default_sort = [('_id', True)]
         
         @expose('/new/', methods=('GET', 'POST'))
         def create_view(self):
@@ -143,6 +150,13 @@ class QuestionarioFollowupAdmin(MyModelView):
         list_template = 'admin/model/list_pdf.html'
         create_template = 'admin/model/create_questfoll.html'
         edit_template = 'admin/model/edit_questfoll.html'
+
+        menu_icon_type = 'fa'
+        menu_icon_value = 'fa-repeat'
+
+        column_labels = dict(paziente=u'Paziente')
+
+        column_default_sort = [('_id', True)]
         
         @expose('/new/', methods=('GET', 'POST'))
         def create_view(self):
@@ -221,6 +235,13 @@ class QuestionarioFollowupAdmin(MyModelView):
 class ModuloAdmin(MyModelView):
 
         list_template = 'admin/model/list_pdf.html'
+
+        menu_icon_type = 'fa'
+        menu_icon_value = 'fa-list-alt'
+
+        column_labels = dict(paziente=u'Paziente')
+
+        column_default_sort = [('_id', True)]
                       
         @expose('/new/', methods=('GET', 'POST'))
         def create_view(self):
@@ -295,6 +316,3 @@ class ModuloAdmin(MyModelView):
                 
                 html = render_template('modulo.html',model=mod,document=document.__dict__,quest=document)
                 return render_pdf(HTML(string=html))
-
-
-

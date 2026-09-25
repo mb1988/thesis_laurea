@@ -1,0 +1,248 @@
+{% extends 'admin/master.html' %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block page_subtitle %}
+<p class="asl-page-sub">
+  Quadro d'insieme del servizio: {{ stats.pazienti }} pazienti seguiti,
+  {{ stats.documenti }} documenti archiviati, {{ stats.centri }} centri attivi.
+</p>
+{% endblock %}
+
+{% block page_actions %}
+<div class="d-flex flex-wrap">
+  <a class="btn btn-primary mr-2 mb-1" href="{{ url_for('paziente.create_view') }}">
+    <i class="fa fa-user-plus"></i> Nuovo paziente
+  </a>
+  <a class="btn btn-outline-primary mr-2 mb-1" href="{{ url_for('doc1.create_view') }}">
+    <i class="fa fa-file-text-o"></i> Nuovo questionario
+  </a>
+  <a class="btn btn-outline-secondary mb-1" href="{{ url_for('medico.index_view') }}">
+    <i class="fa fa-user-md"></i> Medici
+  </a>
+</div>
+{% endblock %}
+
+{% block body %}
+
+{# --------------------------------------------------------------- numeri -- #}
+<div class="asl-kpi-grid">
+  <a class="asl-kpi" href="{{ url_for('paziente.index_view') }}">
+    <span class="asl-kpi-icon"><i class="fa fa-users"></i></span>
+    <span>
+      <span class="asl-kpi-value d-block">{{ stats.pazienti }}</span>
+      <span class="asl-kpi-label">Pazienti</span>
+    </span>
+  </a>
+  <a class="asl-kpi" href="{{ url_for('medico.index_view') }}">
+    <span class="asl-kpi-icon"><i class="fa fa-user-md"></i></span>
+    <span>
+      <span class="asl-kpi-value d-block">{{ stats.medici }}</span>
+      <span class="asl-kpi-label">Medici</span>
+    </span>
+  </a>
+  <a class="asl-kpi" href="{{ url_for('centro.index_view') }}">
+    <span class="asl-kpi-icon"><i class="fa fa-hospital-o"></i></span>
+    <span>
+      <span class="asl-kpi-value d-block">{{ stats.centri }}</span>
+      <span class="asl-kpi-label">Centri</span>
+    </span>
+  </a>
+  <a class="asl-kpi is-accent" href="{{ url_for('doc1.index_view') }}">
+    <span class="asl-kpi-icon"><i class="fa fa-file-text-o"></i></span>
+    <span>
+      <span class="asl-kpi-value d-block">{{ stats.ingressi }}</span>
+      <span class="asl-kpi-label">Questionari ingresso</span>
+    </span>
+  </a>
+  <a class="asl-kpi is-accent" href="{{ url_for('doc2.index_view') }}">
+    <span class="asl-kpi-icon"><i class="fa fa-repeat"></i></span>
+    <span>
+      <span class="asl-kpi-value d-block">{{ stats.followup }}</span>
+      <span class="asl-kpi-label">Follow-up</span>
+    </span>
+  </a>
+  <a class="asl-kpi is-warn" href="{{ url_for('doc3.index_view') }}">
+    <span class="asl-kpi-icon"><i class="fa fa-list-alt"></i></span>
+    <span>
+      <span class="asl-kpi-value d-block">{{ stats.moduli }}</span>
+      <span class="asl-kpi-label">Moduli CDP</span>
+    </span>
+  </a>
+</div>
+
+{# -------------------------------------------------- grafici e copertura -- #}
+<div class="row mt-4">
+  <div class="col-lg-7">
+    <div class="asl-card h-100 mb-0">
+      <h5><i class="fa fa-bar-chart text-muted"></i> Pazienti per centro</h5>
+      <p class="asl-card-sub">Distribuzione dell'utenza sui centri del servizio.</p>
+
+      {% if per_centro %}
+      <div class="asl-bars">
+        {% for row in per_centro %}
+        <div class="asl-bar-row">
+          <span class="asl-bar-label" title="{{ row.centro }}">
+            {{ row.centro.citta }}{% if row.centro.provincia %} ({{ row.centro.provincia }}){% endif %}
+          </span>
+          <span class="asl-bar-track">
+            <span class="asl-bar-fill" style="width: {{ row.percent }}%"></span>
+          </span>
+          <span class="asl-bar-value">{{ row.pazienti }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="asl-empty">
+        <i class="fa fa-hospital-o"></i>
+        Nessun centro registrato.
+        <div class="mt-2"><a class="btn btn-sm btn-primary" href="{{ url_for('centro.create_view') }}">Inserisci il primo centro</a></div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="asl-card h-100 mb-0">
+      <h5><i class="fa fa-check-square-o text-muted"></i> Copertura documentale</h5>
+      <p class="asl-card-sub">Percentuale di pazienti con il documento compilato.</p>
+
+      {% if stats.pazienti %}
+        {% for row in copertura %}
+        <div class="mb-3">
+          <div class="d-flex justify-content-between">
+            <span><i class="fa {{ row.icon }} text-muted"></i> {{ row.label }}</span>
+            <span class="asl-pill">{{ row.fatti }} / {{ stats.pazienti }} · {{ row.percent }}%</span>
+          </div>
+          <div class="progress asl-progress mt-1">
+            <div class="progress-bar" role="progressbar" style="width: {{ row.percent }}%"
+                 aria-valuenow="{{ row.percent }}" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+        {% endfor %}
+
+        <div class="asl-stat-line">
+          <span class="label">Pazienti senza questionario di ingresso</span>
+          <span class="value">{{ stats.senza_questionario }}</span>
+        </div>
+        <div class="asl-stat-line">
+          <span class="label">Documenti archiviati</span>
+          <span class="value">{{ stats.documenti }}</span>
+        </div>
+      {% else %}
+      <div class="asl-empty">
+        <i class="fa fa-users"></i>
+        Nessun paziente in archivio.
+        <div class="mt-2"><a class="btn btn-sm btn-primary" href="{{ url_for('paziente.create_view') }}">Inserisci il primo paziente</a></div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{# ------------------------------------------- ultimi inserimenti + azioni -- #}
+<div class="row mt-4">
+  <div class="col-lg-7">
+    <div class="asl-card h-100 mb-0">
+      <h5><i class="fa fa-clock-o text-muted"></i> Ultimi pazienti inseriti</h5>
+      <p class="asl-card-sub">Gli ultimi fascicoli aperti in ordine di inserimento.</p>
+
+      {% if ultimi_pazienti %}
+      <div class="table-responsive">
+        <table class="table table-sm asl-table mb-0">
+          <thead>
+            <tr><th>Paziente</th><th>Nascita</th><th>Centro</th><th>Medico</th><th class="text-right">Azioni</th></tr>
+          </thead>
+          <tbody>
+            {% for paz in ultimi_pazienti %}
+            <tr>
+              <td><a href="{{ url_for('paziente.edit_view', id=paz.pk) }}">{{ paz.cognome }} {{ paz.nome }}</a></td>
+              <td>{{ paz.nascita.strftime('%d/%m/%Y') if paz.nascita else '—' }}</td>
+              <td>{{ paz.centro.citta if paz.centro else '—' }}</td>
+              <td>{{ paz.medico.cognome if paz.medico else '—' }}</td>
+              <td class="text-right text-nowrap">
+                <a class="btn btn-sm btn-outline-primary" href="{{ url_for('paziente.edit_view', id=paz.pk) }}" title="Modifica"><i class="fa fa-pencil"></i></a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <div class="asl-empty"><i class="fa fa-user-plus"></i>Nessun paziente inserito.</div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="asl-card">
+      <h5><i class="fa fa-bolt text-muted"></i> Azioni rapide</h5>
+      <p class="asl-card-sub">Inserimenti usati piu' spesso.</p>
+      <div class="asl-quick-actions">
+        <a href="{{ url_for('paziente.create_view') }}"><i class="fa fa-user-plus"></i> Nuovo paziente</a>
+        <a href="{{ url_for('medico.create_view') }}"><i class="fa fa-user-md"></i> Nuovo medico</a>
+        <a href="{{ url_for('centro.create_view') }}"><i class="fa fa-hospital-o"></i> Nuovo centro</a>
+        <a href="{{ url_for('doc1.create_view') }}"><i class="fa fa-file-text-o"></i> Questionario ingresso</a>
+        <a href="{{ url_for('doc2.create_view') }}"><i class="fa fa-repeat"></i> Follow-up</a>
+        <a href="{{ url_for('doc3.create_view') }}"><i class="fa fa-list-alt"></i> Modulo CDP</a>
+      </div>
+    </div>
+
+    <div class="asl-card mb-0">
+      <h5><i class="fa fa-stethoscope text-muted"></i> Carico per medico</h5>
+      <p class="asl-card-sub">Pazienti assegnati a ciascun medico.</p>
+      {% if per_medico %}
+        {% for row in per_medico %}
+        <div class="asl-stat-line">
+          <span class="label">{{ row.medico.cognome }} {{ row.medico.nome or '' }}</span>
+          <span class="value">{{ row.pazienti }}</span>
+        </div>
+        {% endfor %}
+      {% else %}
+        <div class="asl-empty"><i class="fa fa-user-md"></i>Nessun medico registrato.</div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{# ------------------------------------------------------ ultimi documenti -- #}
+<div class="asl-card mt-4 mb-0">
+  <h5><i class="fa fa-file-text-o text-muted"></i> Ultimi questionari di ingresso</h5>
+  <p class="asl-card-sub">Con accesso diretto alla versione stampabile in PDF.</p>
+  {% if ultimi_ingressi %}
+  <div class="table-responsive">
+    <table class="table table-sm asl-table mb-0">
+      <thead>
+        <tr><th>Paziente</th><th>Centro</th><th>Trattamento</th><th class="text-right">Documento</th></tr>
+      </thead>
+      <tbody>
+        {% for doc in ultimi_ingressi %}
+        <tr>
+          <td>
+            {% if doc.paziente %}
+            <a href="{{ url_for('doc1.edit_view', id=doc.pk) }}">{{ doc.paziente.cognome }} {{ doc.paziente.nome }}</a>
+            {% else %}—{% endif %}
+          </td>
+          <td>{{ doc.paziente.centro.citta if doc.paziente and doc.paziente.centro else '—' }}</td>
+          <td>{{ doc.trattamento or '—' }}</td>
+          <td class="text-right text-nowrap">
+            <a class="btn btn-sm btn-outline-primary" target="_blank"
+               href="{{ url_for('doc1.pdf', id=doc.pk) }}">
+              <i class="fa fa-file-pdf-o"></i> PDF
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="asl-empty">
+    <i class="fa fa-file-text-o"></i>
+    Nessun questionario di ingresso compilato.
+    <div class="mt-2"><a class="btn btn-sm btn-primary" href="{{ url_for('doc1.create_view') }}">Compila il primo questionario</a></div>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

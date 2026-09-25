@@ -22,13 +22,15 @@ path = app.config[ 'DOWNLOAD_FOLDER' ]
 if not isdir( path ): makedirs( path )
 
 # Create admin
-adm = admin.Admin(app, 'ASL', index_view=MyAdminIndexView())
-adm.add_view(CentroAdmin(Centro))
-adm.add_view(MedicoAdmin(Medico))
-adm.add_view(PazienteAdmin(Paziente))
-adm.add_view(QuestionarioIngressoAdmin(Questionario_ingresso,name='Questionario_ingresso',endpoint='doc1',category='Documenti'))
-adm.add_view(QuestionarioFollowupAdmin(Questionario_followup,name='Questionario_followup',endpoint='doc2',category='Documenti'))
-adm.add_view(ModuloAdmin(Modulo_CDP,name='Modulo_CDP',endpoint='doc3',category='Documenti'))
-adm.add_view(MyFileAdmin(path, '/upload/', name='Upload'))
-adm.add_view(MyModelAdmin(User, dbsqla.session))
+adm = admin.Admin(app, 'ASL - Servizio Dipendenze', index_view=MyAdminIndexView())
+adm.add_view(CentroAdmin(Centro, name='Centri', category='Anagrafiche'))
+adm.add_view(MedicoAdmin(Medico, name='Medici', category='Anagrafiche'))
+adm.add_view(PazienteAdmin(Paziente, name='Pazienti', category='Anagrafiche'))
+adm.add_view(QuestionarioIngressoAdmin(Questionario_ingresso,name='Questionari di ingresso',endpoint='doc1',category='Documenti'))
+adm.add_view(QuestionarioFollowupAdmin(Questionario_followup,name='Follow-up',endpoint='doc2',category='Documenti'))
+adm.add_view(ModuloAdmin(Modulo_CDP,name='Moduli CDP',endpoint='doc3',category='Documenti'))
+# endpoint='upload' -> l'archivio file risponde su /admin/upload/ (prima era
+# /admin/myfileadmin/, un nome derivato dalla classe).
+adm.add_view(MyFileAdmin(path, '/upload/', name='Archivio file', endpoint='upload', category='Documenti'))
+adm.add_view(MyModelAdmin(User, dbsqla.session, name='Utenti', category='Sistema'))
 adm.add_view(Logout())

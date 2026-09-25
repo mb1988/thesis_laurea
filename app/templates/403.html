@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}Accesso non consentito · ASL Servizio Dipendenze{% endblock %}
+{% block body_class %}login-page{% endblock %}
+
+{% block body %}
+<div class="login-shell" style="grid-template-columns: 1fr; max-width: 560px;">
+  <div class="login-card text-center">
+    <div class="asl-kpi-icon mx-auto mb-3" style="width: 64px; height: 64px; font-size: 1.7rem; background: #fdf1e3; color: #d97706;">
+      <i class="fa fa-lock"></i>
+    </div>
+    <h2>Errore 403 — accesso non consentito</h2>
+    <p class="login-sub">
+      Il tuo profilo non ha i permessi necessari per questa sezione.
+      Le sezioni riservate agli amministratori richiedono l'utente <strong>admin</strong>.
+    </p>
+    <div class="mt-3">
+      <a class="btn btn-primary mr-2" href="{{ url_for('admin.index') }}">Torna alla dashboard</a>
+      <a class="btn btn-outline-primary" href="{{ url_for('users.logout_view') }}">Cambia utente</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,10 +1,18 @@
 <!doctype html>
-	
-	<center><h4>Questionario di follow-up dell'intervista EuropASI</h4></center>
-	
-	Cognome: {{quest_ingresso.paziente.cognome}}<br/><br/>
-    Nome: {{quest_ingresso.paziente.nome}}<br/><br/>
-	Centro: {%if quest_ingresso.paziente.centro != None %}{{quest_ingresso.paziente.centro}}{%endif%}<br/><br/>
+<html lang="it">
+<head><meta charset="utf-8">{% include 'pdf_style.html' %}</head>
+<body class="asl-pdf">
+<div class="pdf-page">
+
+	<div class="pdf-header">
+		<div class="pdf-org">Azienda Sanitaria Locale - Dipartimento Dipendenze</div>
+		<h1>Questionario di ingresso dell'intervista EuropASI</h1>
+	</div>
+
+	<div class="pdf-patient-box">
+		<b>Paziente:</b> {{quest_ingresso.paziente.cognome}} {{quest_ingresso.paziente.nome}}<br/>
+		<b>Centro:</b> {%if quest_ingresso.paziente.centro != None %}{{quest_ingresso.paziente.centro}}{%else%}-{%endif%}
+	</div>
 
 
 	{% for dom in model %}
@@ -78,5 +86,11 @@
 	{%endif%}
 	<br/><br/> <i>{{document[dom["name"]]}}</i><br/><br/>
 	{% endfor %}
-	
+
+	<div class="pdf-footer">
+		Documento generato dal Sistema di gestione ambulatoriale - ASL Servizio Dipendenze
+	</div>
+</div>
+</body>
+</html>
 

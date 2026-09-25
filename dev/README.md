@@ -66,6 +66,29 @@ Everything here is mechanical; no feature was added or removed.
 | 8 admin templates | dropped `select2/select2.css`, `css/datepicker.css`, `js/bootstrap-datepicker.js`, `js/bootstrap-tooltip.js` | those files no longer ship with flask-admin; the reference is now the real `vendor/select2/select2.css`. |
 | `app/admin/forms.py` | fixed `MyModelAdmin.is_accessible` | see "Bug fixed" below. |
 | `requirements.txt` | rewritten for the 2026 stack | the 2014 pins live on in `requirements-2014.txt`. |
+| `app/templates/admin/master.html` (nuovo) | barra di navigazione, breadcrumb, footer e CSS aziendale per tutte le pagine dell'area riservata | prima ogni pagina mostrava il tema Bootstrap 4 nudo di flask-admin, senza intestazione ne' identita' visiva. |
+| `app/admin/dashboard.py`, `app/templates/admin/index.html` (nuovi) | dashboard iniziale | la home di flask-admin era vuota. |
+| `layout.html`, `login.html`, `403.html`, `404.html`, `static/theme.css` | nuova veste grafica, pagina di accesso a due pannelli, pagine di errore | il login era un form senza stile e caricava un jQuery inesistente. |
+| `centri_list.html`, `medici_list.html`, `pazienti_list.html`, `modulo.html`, `questionario_*.html`, `pdf_style.html` | intestazione, tabelle, piè di pagina nei PDF | i PDF erano testo sciolto senza struttura. |
+| `app/admin/forms.py` (`LoginRequiredView`) | chi non e' autenticato viene portato al login | prima flask-admin rispondeva con un 403 nudo. |
+| `app/templates/admin/file/list2.html` | rimosso | usava la vecchia struttura `items` a 4 elementi, sostituita da flask-admin 2.x (5 elementi + date). |
+| `app/admin/*/forms.py` | etichette italiane, icone di menu, ordinamento predefinito, esportazione CSV/JSON | l'interfaccia era in inglese e con nomi tecnici. |
+
+## Interfaccia e funzionalita' (2026)
+
+* **Dashboard iniziale** (`/admin/`): sei indicatori (pazienti, medici, centri,
+  questionari di ingresso, follow-up, moduli CDP), grafico pazienti per centro,
+  copertura documentale per paziente, ultimi pazienti inseriti, carico per
+  medico, ultimi questionari con link diretto al PDF e azioni rapide.
+* **Esportazione** CSV/JSON su ogni elenco (`can_export`), ricerca e filtri
+  gia' presenti nel 2014.
+* **Archivio file** su `/admin/upload/` (prima `/admin/myfileadmin/`) con
+  caricamento, download e creazione cartelle.
+* **Menu in italiano** con categorie (Anagrafiche, Documenti, Sistema) e icone.
+* **Accessi**: le sezioni riservate portano al login se non si e' autenticati e
+  mostrano una pagina 403 dedicata se il profilo non e' amministratore.
+* **Documenti stampabili** con intestazione ASL, riquadro paziente, tabelle e
+  piè di pagina, sia per gli elenchi sia per i questionari.
 
 ## Bug fixed
 
@@ -125,6 +148,4 @@ The SQL users table is already persistent (`instance/dev.sqlite3`).
 
 * Passwords are stored in clear text and compared with `!=` (`app/user/forms.py`).
   That is the 2014 design; do not reuse these accounts anywhere real.
-* `MyFileAdmin` is mounted at `/admin/myfileadmin/`, not `/admin/upload/`
-  (flask-admin derives the endpoint from the class name).
 * The upload folder is created at import time from `DOWNLOAD_FOLDER`.

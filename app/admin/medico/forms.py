@@ -9,20 +9,27 @@ from flask_weasyprint import HTML, render_pdf
 
 from app import app
 
+
 class MedicoAdmin(MyModelView):
 
-        list_template = 'admin/model/list_medici.html'
+    list_template = 'admin/model/list_medici.html'
 
-        column_list = ('cognome','nome','centro')
+    menu_icon_type = 'fa'
+    menu_icon_value = 'fa-user-md'
 
-        column_searchable_list = ('cognome','nome')
+    column_list = ('cognome','nome','centro')
 
-        column_filters = ('cognome',
+    column_labels = dict(cognome=u'Cognome', nome=u'Nome', centro=u'Centro di riferimento')
+
+    column_searchable_list = ('cognome','nome')
+
+    column_filters = ('cognome',
                       'nome')
-                     
-        @app.route('/medici.pdf')
-        def medici_pdf():
-                medici = Medico.objects.all()
-                html = render_template('medici_list.html',medici=medici)
-                return render_pdf(HTML(string=html))
-   
+
+    column_default_sort = 'cognome'
+
+    @app.route('/medici.pdf')
+    def medici_pdf():
+        medici = Medico.objects.all()
+        html = render_template('medici_list.html',medici=medici)
+        return render_pdf(HTML(string=html))

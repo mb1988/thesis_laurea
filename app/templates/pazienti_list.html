@@ -1,16 +1,44 @@
 <!doctype html>
+<html lang="it">
+<head><meta charset="utf-8">{% include 'pdf_style.html' %}</head>
+<body class="asl-pdf">
+<div class="pdf-page">
+  <div class="pdf-header">
+    <div class="pdf-org">Azienda Sanitaria Locale - Dipartimento Dipendenze</div>
+    <h1>Elenco dei pazienti</h1>
+    <div class="pdf-meta">Totale pazienti in carico: {{ pazienti|length }}</div>
+  </div>
 
-<center><h4>LISTA PAZIENTI</h4></center>
+  {% if pazienti %}
+  <table class="pdf-table">
+    <thead>
+      <tr>
+        <th style="width: 20%">Cognome</th>
+        <th style="width: 18%">Nome</th>
+        <th style="width: 15%">Nascita</th>
+        <th style="width: 23%">Centro</th>
+        <th>Medico</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for paz in pazienti %}
+      <tr{% if loop.index is even %} class="alt"{% endif %}>
+        <td>{{ paz.cognome }}</td>
+        <td>{{ paz.nome }}</td>
+        <td>{% if paz.nascita %}{{ paz.nascita.strftime('%d/%m/%Y') }}{% else %}-{% endif %}</td>
+        <td>{% if paz.centro %}{{ paz.centro }}{% else %}-{% endif %}</td>
+        <td>{% if paz.medico %}{{ paz.medico }}{% else %}-{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>Nessun paziente registrato.</p>
+  {% endif %}
 
-{% for paz in pazienti %}
-	<p>NOME: {{paz.nome}}</p>
-	<p>COGNOME: {{paz.cognome}}</p>
-	<p>NASCITA: {{paz.nascita}}</p>
-	<p>CENTRO: {%if paz.centro != None %}{{paz.centro}}{%endif%}</p>
-	<p>MEDICO: {%if paz.medico != None %}{{paz.medico}}{%endif%}</p>
-	<br>
-	
-	
-{% endfor %}
-
-
+  <div class="pdf-footer">
+    Documento generato dal Sistema di gestione ambulatoriale - ASL Servizio Dipendenze
+  </div>
+</div>
+</body>
+</html>

@@ -31,7 +31,7 @@ PAGES = [
     "/admin/doc2/new/",
     "/admin/doc3/",
     "/admin/doc3/new/",
-    "/admin/myfileadmin/",
+    "/admin/upload/",
     "/admin/user/",
     "/admin/logout/",
     "/centri.pdf",
@@ -85,9 +85,9 @@ def check_assets(client, bodies, failures):
 def main():
     failures = []
     with app.test_client() as client:
-        # Anonymous visitors must be refused, not crash: the 2014 code calls
-        # current_user.is_authenticated() everywhere (see compat/shim_login.py).
-        expect(client, "/admin/", 403, "GET /admin/ (anonymous)", failures)
+        # Anonymous visitors are sent to the login page instead of the bare 403
+        # flask-admin used to return (see app/admin/forms.py, LoginRequiredView).
+        expect(client, "/admin/", 302, "GET /admin/ (anonymous -> login)", failures)
         expect(client, "/", 200, "GET /", failures)
 
         response = client.post("/", data=ADMIN, follow_redirects=False)

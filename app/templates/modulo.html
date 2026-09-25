@@ -1,224 +1,87 @@
 <!doctype html>
+<html lang="it">
+<head><meta charset="utf-8">{% include 'pdf_style.html' %}</head>
+<body class="asl-pdf">
+<div class="pdf-page">
 
+  <div class="pdf-header">
+    <div class="pdf-org">Azienda Sanitaria Locale - Dipartimento Dipendenze</div>
+    <h1>Scheda Centro Diagnostico Polispecialistico (CDP)</h1>
+    <div class="pdf-meta">Milano, ____/____/________ &nbsp;-&nbsp; Cartella N° {{ quest.cartella_N or '-' }}</div>
+  </div>
 
-<head>
+  <div class="pdf-patient-box">
+    <b>Paziente:</b> {{ quest.paziente.cognome }} {{ quest.paziente.nome }}<br/>
+    <b>Luogo e data di nascita:</b> {{ quest.luogo_nasc or '-' }}
+    {%- if quest.data_nasc %} - {{ quest.data_nasc }}{% endif %}<br/>
+    <b>Domicilio:</b> {{ quest.domicilio or '-' }}{% if quest.citta %} - {{ quest.citta }}{% endif %}<br/>
+    <b>Recapiti:</b> {{ quest.recapito or '-' }}{% if quest.email %} - {{ quest.email }}{% endif %}
+  </div>
 
-<style type="text/css">
-#container1 {height:100%; width: 100%;}
-#cont1uno, #cont1due {float: left; height: 35px; }
-#cont1uno {width: 30%;border: 1px solid #000000;}
-#cont1due {width: 69%;border: 1px solid #000000;}
+  <div class="pdf-section-title">Invio e presa in carico</div>
+  <table class="pdf-table">
+    <tbody>
+      <tr><td style="width: 34%">Servizio inviante</td><td>{{ quest.servizio_inv or '-' }}</td></tr>
+      <tr class="alt"><td>Operatore e numero di riferimento</td><td>{{ quest.operatore or '-' }}</td></tr>
+      <tr><td>Informazioni sull'invio</td><td>{{ quest.info_invio or '-' }}</td></tr>
+      <tr class="alt"><td>Servizio inviante (familiare)</td><td>{{ quest.servizio_inv_fam or '-' }}</td></tr>
+    </tbody>
+  </table>
 
-#container2 {height:100%; width: 100%;}
-#uno, #due ,#tre, #quattro{float: left; height: 35px; }
-#uno {width: 20%;border: 1px solid #000000;}
-#due {width: 29%;border: 1px solid #000000;}
-#tre {width: 20%;border: 1px solid #000000;}
-#quattro {width: 29%;border: 1px solid #000000;}
+  <div class="pdf-section-title">Appuntamenti fissati</div>
+  <table class="pdf-table">
+    <thead>
+      <tr><th style="width: 12%">SI/NO</th><th>Prestazione</th><th style="width: 22%">Data e ora</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>{% if quest.vis_tos %}SI{% else %}NO{% endif %}</td><td>Visita tossicologica</td><td>{{ quest.data_vis_tos or '-' }}</td></tr>
+      <tr class="alt"><td>{% if quest.ric_sost %}SI{% else %}NO{% endif %}</td><td>Effettuazione ricerca sostanze su campo biologico</td><td>{{ quest.data_ric_sost or '-' }}</td></tr>
+      <tr><td>{% if quest.esami_siero %}SI{% else %}NO{% endif %}</td><td>Effettuazione esami sierologici</td><td>{{ quest.data_esami_siero or '-' }}</td></tr>
+      <tr class="alt"><td>{% if quest.esami_ematochimici %}SI{% else %}NO{% endif %}</td><td>Richiesta esami ematochimici di routine</td><td>{{ quest.data_esami_ematochimici or '-' }}</td></tr>
+      <tr><td>{% if quest.prima_vis_psicodiagn %}SI{% else %}NO{% endif %}</td><td>1° visita psicodiagnostica</td><td>{{ quest.data_prima_vis_psicodiagn or '-' }}</td></tr>
+      <tr class="alt"><td>{% if quest.vis_psic %}SI{% else %}NO{% endif %}</td><td>Visita psichiatrica</td><td>{{ quest.data_vis_psic or '-' }}</td></tr>
+      <tr><td>{% if quest.vis_infet %}SI{% else %}NO{% endif %}</td><td>Visita infettivologica</td><td>{{ quest.data_vis_infet or '-' }}</td></tr>
+      <tr class="alt"><td>{% if quest.vis_card %}SI{% else %}NO{% endif %}</td><td>Visita cardiologica</td><td>{{ quest.data_vis_card or '-' }}</td></tr>
+    </tbody>
+  </table>
 
-#container3 {height:100%; width: 100%;}
-#cont3uno, #cont3due ,#cont3tre{float: left; height: 35px; }
-#cont3uno {width: 10%;border: 1px solid #000000;}
-#cont3due {width: 59%;border: 1px solid #000000;}
-#cont3tre {width: 30%;border: 1px solid #000000;}
+  <div class="pdf-section-title">Esiti delle visite</div>
+  <div class="pdf-field">
+    <div class="pdf-field-label">Visita tossicologica</div>
+    <div class="pdf-field-value">{{ quest.visita_tossicologica or '-' }}</div>
+    <div class="pdf-meta">Medico: (timbro e firma)</div>
+  </div>
+  <div class="pdf-field">
+    <div class="pdf-field-label">Visita psichiatrica</div>
+    <div class="pdf-field-value">{{ quest.visita_psichiatrica or '-' }}</div>
+    <div class="pdf-meta">Medico: (timbro e firma)</div>
+  </div>
+  <div class="pdf-field">
+    <div class="pdf-field-label">Colloqui psicodiagnostici</div>
+    <div class="pdf-field-value">{{ quest.colloqui_psicodiagnostici1 or '-' }}</div>
+    <div class="pdf-meta">Referente del CDP: (timbro e firma)</div>
+  </div>
 
-</style>
-</head>
+  <div class="pdf-section-title">Referto del CDP</div>
+  <div class="pdf-field">
+    <div class="pdf-field-value">{{ quest.visita1 or '-' }}</div>
+    <div class="pdf-field-value">{{ quest.visita2 or '' }}</div>
+    <div class="pdf-meta">Referente del CDP: (timbro e firma)</div>
+  </div>
 
-<center><img src="http://www.asl.milano.it/user/assets/images/logo.jpg" alt="Regione Lombardia ASL Milano"/></center>
+  <div class="pdf-section-title">Allegati ed esito</div>
+  <table class="pdf-table">
+    <tbody>
+      <tr><td style="width: 34%">Esami allegati</td><td>{{ quest.allegati or '-' }}</td></tr>
+      <tr class="alt"><td>Esito delle dimissioni del paziente</td><td>{{ quest.esito or '-' }}</td></tr>
+    </tbody>
+  </table>
 
-<body>
-
-Milano,____/____/________<br/><br/>
-
-<div style="width: 300px;height:30px;border: 1px solid #000000;font:10pt;";display: block;">Cartella N° {{quest.cartella_N}}</div>
-
-<center><h3>Scheda Centro Diagnostico Polispecialistico</h3></center>
-
-<div id="container1"> 
-<div id="cont1uno" >Nome:</div>
-<div id="cont1due" style="text-align: center">{{quest.paziente.nome}}</div> 
-</div> 
-<br/>
-<br/>
-<div id="container1"> 
-<div id="cont1uno" >Cognome:</div>
-<div id="cont1due" style="text-align: center">{{quest.paziente.cognome}}</div> 
-</div> 
-<br/>
-<br/>
-<div id="container2"> 
-<div id="uno" >Luogo di nascita:</div>
-<div id="due" style="text-align: center"">{{quest.luogo_nasc}}</div> 
-<div id="uno" >Data di nascita:</div>
-<div id="due" style="text-align: center"">{{quest.data_nasc}}</div> 
-</div> 
-
-<div id="container2"> 
-<div id="uno" >Domicilio:</div>
-<div id="due" style="text-align: center"">{{quest.domicilio}}</div> 
-<div id="uno" >Città:</div>
-<div id="due" style="text-align: center"">{{quest.citta}}</div> 
-</div> 
-
-<div id="container2"> 
-<div id="uno" >Recapito telefonico:</div>
-<div id="due" style="text-align: center"">{{quest.recapito}}</div> 
-<div id="uno" >E-mail o altro recapito:</div>
-<div id="due" style="text-align: center"">{{quest.email}}</div> 
-</div> 
-
-<div id="container2"> 
-<div id="uno" >Servizio inviante:</div>
-<div id="due" style="text-align: center"">{{quest.servizio_inv}}</div> 
-<div id="uno" >Oper. e num. di riferimento:</div>
-<div id="due" style="text-align: center"">{{quest.operatore}}</div> 
-</div> 
-
-<h5><br/>Triage:</h5>
-{{quest.info_invio}}
-<br/>
-<br/>
-{{quest.servizio_inv_fam}}
-<h5>Appuntamenti fissati:</h5>
-<p style="text-indent:5em";><b>Oggetto:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data e ora:</b></p>
-<div id="container3">
-{% if quest.vis_tos == True %}
-<div id="cont3uno" >SI</div>
-{% else %}
-<div id="cont3uno" >NO</div>
-{% endif %}
-<div id="cont3due">Visita tossicologica</div> 
-<div id="cont3tre" >{{quest.data_vis_tos}}</div> 
-</div> 
-<div id="container3">
-{% if quest.ric_sost == True %}
-<div id="cont3uno" >SI</div>
-{% else %}
-<div id="cont3uno" >NO</div>
-{% endif %}
-<div id="cont3due"> - Effettuazione ricerca sostanze su campo biologico</div> 
-<div id="cont3tre" >{{quest.data_ric_sost}}</div> 
-</div> 
-<div id="container3">
-{% if quest.esami_siero == True %}
-<div id="cont3uno" >SI</div>
-{% else %}
-<div id="cont3uno" >NO</div>
-{% endif %}
-<div id="cont3due"> - Effettuazione esami sierologici</div> 
-<div id="cont3tre" >{{quest.data_esami_siero}}</div> 
-</div> 
-<div id="container3">
-{% if quest.esami_ematochimici == True %}
-<div id="cont3uno" >SI</div>
-{% else %}
-<div id="cont3uno" >NO</div>
-{% endif %}
-<div id="cont3due">- Richiesta esami ematochimici di routine</div> 
-<div id="cont3tre" >{{quest.data_esami_ematochimici}}</div> 
-</div> 
-<div id="container3">
-{% if quest.prima_vis_psicodiagn == True %}
-<div id="cont3uno" >SI</div>
-{% else %}
-<div id="cont3uno" >NO</div>
-{% endif %}
-<div id="cont3due"> 1° Visita psicodiagnostica</div> 
-<div id="cont3tre" >{{quest.data_prima_vis_psicodiagn}}</div> 
-</div> 
-<div id="container3">
-{% if quest.vis_psic == True %}
-<div id="cont3uno" >SI</div>
-{% else %}
-<div id="cont3uno" >NO</div>
-{% endif %}
-<div id="cont3due">Visita Psichiatrica</div> 
-<div id="cont3tre" >{{quest.data_vis_psic}}</div> 
-</div> 
-<div id="container3">
-{% if quest.vis_infet == True %}
-<div id="cont3uno" >SI</div>
-{% else %}
-<div id="cont3uno" >NO</div>
-{% endif %}
-<div id="cont3due">Visita Infettivologica</div> 
-<div id="cont3tre" >{{quest.data_vis_infet}}</div> 
-</div> 
-<div id="container3">
-{% if quest.vis_card == True %}
-<div id="cont3uno" >SI</div>
-{% else %}
-<div id="cont3uno" >NO</div>
-{% endif %}
-<div id="cont3due">Visita Cardiologica</div> 
-<div id="cont3tre" >{{quest.data_vis_card}}</div> 
-</div> 
-<center>L'infermiere del Triage:</center>
-
-<img src="http://www.asl.milano.it/user/assets/images/logo.jpg" alt="Regione Lombardia ASL Milano"/>
-<b>Scheda Centro Diagnostico Polispecialistico</b>
-<br/>
-Visita Tossicologica:
-<br/>
-{{quest.visita_tossicologica}}
-<br/>
-<center>Medico:(timbro e firma)</center>
-<br/><br/><br/>
-Visita Psichiatrica:
-<br/>
-{{quest.visita_psichiatrica}}
-<br/>
-<center>Medico:(timbro e firma)</center>
-<br/><br/><br/>
-Colloqui psicodiagnostici:
-<br/>
-Test eseguiti:
-<br/>
-{{quest.colloqui_psicodiagnostici1}}
-<br/>
-Psicodiagnosi:
-<br/>
-{{quest.colloqui_psicodiagnostici1}}
-<br/>
-<center>Referende del CDP</center>
-<br/><br/><br/>
-Visita: {{quest.visita1}}
-<br/>
-{{quest.visita2}}
-<br/>
-<center>Referende del CDP</center>
-<br/><br/><br/>
-Si allegano esami effettuati:
-<br/>
-{{quest.allegati}}
-<br/>
-Esito dimissioni del paziente:
-<br/>
-{{quest.esito}}
-<br/>
-<center>Referende del CDP</center>
-<br/><br/><br/>
-________________________________________________________________________________
-<center><FONT FACE=Arial" COLOR="#008800" SIZE="12"> AZIENDA SANITARIA LOCALE DI MILANO<br/>
-DIPARTIMENTO DIPENDENZE - Centro Diagnostico Polispecialistico<br/>
- Via Canzio 18 – Milano 20131 – Tel. 0285781 Fax XXXXXXXXXXX   <br/>
-e-mail: CDP@asl.milano.it<br/>
-Codice fiscale e P. IVA 12319130154  -  sito:  http://www.asl.milano.it </FONT></center>
-
-
+  <div class="pdf-footer">
+    Azienda Sanitaria Locale di Milano - Dipartimento Dipendenze - Centro Diagnostico Polispecialistico<br/>
+    Via Canzio 18 - 20131 Milano - Tel. 0285781 - e-mail: CDP@asl.milano.it<br/>
+    Documento generato dal Sistema di gestione ambulatoriale
+  </div>
+</div>
 </body>
-<!–
-Nome:{{quest.paziente.nome}}
-
-
-
-	Cognome: {{quest.paziente.cognome}}
-    
-	Centro: {%if quest.paziente.centro != None %}{{quest.paziente.centro}}{%endif%}
-	
-	{% for dom in model %}
-	{{ dom["label"] }}:{{document[dom["name"]]}}
-	{% endfor %}
-	
-–>
+</html>

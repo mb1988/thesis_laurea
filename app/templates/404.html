@@ -1,12 +1,22 @@
 {% extends "layout.html" %}
+
+{% block title %}Pagina non trovata · ASL Servizio Dipendenze{% endblock %}
+{% block body_class %}login-page{% endblock %}
+
 {% block body %}
-
-<p align="center">
-
-<h1>Error 404</h1><br>Page Not Found
-<br><h3>La pagina a cui si sta tentando di accedere non esiste oppure occorre essere registrati per accedervi</h3>
-
-<br>Per accedere all'applicativo vai a <a href="/">Login</a>
-<br>Se hai già effettuato l'accesso vai a <a href="/admin">Home</a>
-
+<div class="login-shell" style="grid-template-columns: 1fr; max-width: 560px;">
+  <div class="login-card text-center">
+    <div class="asl-kpi-icon mx-auto mb-3" style="width: 64px; height: 64px; font-size: 1.7rem;">
+      <i class="fa fa-map-signs"></i>
+    </div>
+    <h2>Errore 404 — pagina non trovata</h2>
+    <p class="login-sub">
+      La pagina richiesta non esiste oppure occorre essere registrati per accedervi.
+    </p>
+    <div class="mt-3">
+      <a class="btn btn-primary mr-2" href="{{ url_for('users.index') }}">Vai al login</a>
+      <a class="btn btn-outline-primary" href="{{ url_for('admin.index') }}">Torna alla dashboard</a>
+    </div>
+  </div>
+</div>
 {% endblock %}

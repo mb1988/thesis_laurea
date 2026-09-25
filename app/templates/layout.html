@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
   <head>
-  	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
     <meta charset="utf-8">
-    <title>{% block title %}ASL{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-
-    <!-- Le styles -->
-    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
-	
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-    <link href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}" rel="stylesheet">
-
+    <title>{% block title %}ASL · Servizio Dipendenze{% endblock %}</title>
+    {# Bootstrap 4 e Font Awesome sono quelli gia' serviti dall'area admin. #}
+    <link href="{{ url_for('admin.static', filename='bootstrap/bootstrap4/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('admin.static', filename='bootstrap/bootstrap4/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='theme.css') }}" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230b5f8a'/><path d='M14 7h4v7h7v4h-7v7h-4v-7H7v-4h7z' fill='white'/></svg>">
+    {% block head %}{% endblock %}
   </head>
-  {% block body %}{% endblock %}
-  </html>
+  <body class="{% block body_class %}{% endblock %}">
+    {% block body %}{% endblock %}
+  </body>
+</html>
